@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Explorer | EventSetup Pvt Ltd</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        'brand-blue': '#1e3a8a',
+                        'brand-red': '#f43f5e',
+                        'brand-red-hover': '#e11d48',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .sidebar-link.active {
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(244, 63, 94, 0.4);
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-white bg-[#0f172a] flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-white/5 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                        EventSetup
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="hover:text-brand-red transition-colors duration-200 font-medium text-blue-100">Home</a>
+                    <a href="../about.html" class="hover:text-brand-red transition-colors duration-200 font-medium text-blue-100">About</a>
+                    <a href="explorer.html" class="text-brand-red transition-colors duration-200 font-medium">Services</a>
+                    <a href="../gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium text-blue-100">Gallery</a>
+                    <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full font-medium transition-all duration-300">Book Now</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a] absolute w-full left-0 top-full shadow-2xl border-t border-white/5">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="../index.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">Home</a>
+                <a href="../about.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">About</a>
+                <a href="explorer.html" class="block px-3 py-3 text-brand-red hover:bg-white/5 rounded-lg font-medium transition-colors">Services</a>
+                <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">Gallery</a>
+                <a href="../index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover transition-colors">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Explorer Layout -->
+    <main class="flex-1 pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- Sidebar -->
+                <aside class="lg:w-64 shrink-0">
+                    <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sticky top-28 shadow-2xl">
+                        <h3 class="text-xs font-bold text-blue-300/50 uppercase tracking-widest mb-6 px-4">Categories</h3>
+                        <nav class="space-y-2">
+                            <a href="#" data-category="corporate" class="sidebar-link active flex items-center px-4 py-3 rounded-xl transition-all font-medium">
+                                <i class="fas fa-building w-6"></i> Corporate
+                            </a>
+                            <a href="#" data-category="weddings" class="sidebar-link text-blue-100 hover:bg-white/5 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
+                                <i class="fas fa-heart w-6"></i> Weddings
+                            </a>
+                            <a href="#" data-category="tents" class="sidebar-link text-blue-100 hover:bg-white/5 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
+                                <i class="fas fa-campground w-6"></i> Tent & Decor
+                            </a>
+                            <a href="#" data-category="games" class="sidebar-link text-blue-100 hover:bg-white/5 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
+                                <i class="fas fa-gamepad w-6"></i> Party Games
+                            </a>
+                        </nav>
+                        
+                        <div class="mt-8 pt-8 border-t border-white/5 px-4">
+                            <div class="flex items-center space-x-3 text-sm text-blue-200 mb-4">
+                                <i class="fas fa-headset text-brand-red"></i>
+                                <span class="font-bold">Need help?</span>
+                            </div>
+                            <p class="text-xs text-blue-100/60 mb-6 leading-relaxed">Chat with our experts for custom setups.</p>
+                            
+                            <div class="space-y-3">
+                                <a href="tel:+919650624535" class="flex items-center justify-center space-x-2 w-full py-3 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-white hover:bg-white/10 transition-all">
+                                    <i class="fas fa-phone-alt text-brand-red"></i>
+                                    <span>Call Support</span>
+                                </a>
+                                <a href="https://wa.me/919650624535" target="_blank" class="flex items-center justify-center space-x-2 w-full py-3 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl text-xs font-bold text-[#25D366] hover:bg-[#25D366]/20 transition-all">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp Us</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <div class="flex-1">
+                    <div class="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-2xl rounded-3xl border border-white/10 p-6 md:p-10 mb-8 shadow-2xl overflow-hidden relative group">
+                        <div class="relative z-10">
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4"><span id="category-title">Corporate Events</span><span class="dynamic-city-text text-brand-red"></span></h2>
+                            <p id="category-desc" class="text-blue-100/60 max-w-2xl leading-relaxed text-lg">Professional setups, state-of-the-art PA systems, and elegant seating designed for impactful business gatherings.</p>
+                        </div>
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-blue/20 rounded-full blur-[100px] group-hover:bg-brand-red/10 transition-colors duration-1000"></div>
+                        <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-red/10 rounded-full blur-[100px]"></div>
+                    </div>
+
+                    <!-- Services Grid -->
+                    <div id="explorer-content" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Dynamic content loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Cart / Summary -->
+                <aside class="lg:w-80 shrink-0">
+                    <div class="bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 p-6 sticky top-28 shadow-2xl">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="text-lg font-bold text-white">Your Selection</h3>
+                            <span id="cart-count" class="bg-brand-red text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">0</span>
+                        </div>
+                        
+                        <div id="cart-items-list" class="min-h-[200px] mb-8 overflow-y-auto max-h-[400px] pr-2">
+                            <!-- Selected items will appear here -->
+                            <div class="text-center py-8 text-blue-100/40 text-sm italic">Explore and add services to your bucket.</div>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-white/5">
+                            <button id="explorer-book-btn" class="w-full bg-brand-red text-white py-4 rounded-xl font-extrabold hover:bg-brand-red-hover hover:shadow-[0_0_20px_rgba(244,63,94,0.4)] transition-all duration-300 flex items-center justify-center opacity-50 pointer-events-none group">
+                                <i class="fab fa-whatsapp mr-2 text-xl group-hover:scale-110 transition-transform"></i> Finalize & Book
+                            </button>
+                            <p class="text-[9px] text-center text-blue-200/50 mt-4 px-4 uppercase tracking-[0.2em] font-bold">Fast-track your event planning</p>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 backdrop-blur-md text-blue-100/40 py-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs tracking-widest">
+            <p>&copy; 2026 EVENTSETUP PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/services.js"></script>
+</body>
+</html>

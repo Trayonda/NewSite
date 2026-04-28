@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const encodedMessage = encodeURIComponent(message);
 
             // Phone number of the business (can be changed to real number later)
-            const businessPhone = "919876543210";
+            const businessPhone = "919650624535";
 
             // Open WhatsApp in new tab
             window.open(`https://wa.me/${businessPhone}?text=${encodedMessage}`, '_blank');
