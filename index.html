@@ -100,14 +100,31 @@
     <section id="home" class="relative h-screen flex items-center justify-center hero-bg px-4">
         <div class="max-w-5xl mx-auto z-10 relative mt-16 text-center md:text-left flex flex-col md:items-start items-center">
             <span class="inline-block py-1 px-3 rounded-full bg-brand-red/20 border border-brand-red/50 text-brand-red text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">Premium Experiences</span>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                Transforming Moments into <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-red">Masterpieces.</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl drop-shadow-md font-light leading-relaxed">
-                Expert Tent Decor, Corporate Events, and Game Installations for your perfect celebration.
-            </p>
-            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+            
+            <div class="relative w-full">
+                <!-- Invisible placeholder to reserve exact space -->
+                <div class="invisible pointer-events-none" aria-hidden="true">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                        Transforming Moments into <br class="hidden md:block" />
+                        Masterpieces.
+                    </h1>
+                    <p class="text-lg md:text-2xl mb-10 max-w-2xl font-light leading-relaxed">
+                        Expert Tent Decor, Corporate Events, and Game Installations for your perfect celebration.
+                    </p>
+                </div>
+                
+                <!-- Visible typed text overlay -->
+                <div class="absolute inset-0 top-0 left-0">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                        <span id="typed-title"></span>
+                    </h1>
+                    <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl drop-shadow-md font-light leading-relaxed">
+                        <span id="typed-subtitle"></span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto mt-2">
                 <a href="#services" class="px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold hover:bg-white hover:text-brand-blue transition-all duration-300 text-center backdrop-blur-sm">
                     Our Services
                 </a>
@@ -446,7 +463,33 @@
         </div>
     </section>
 
-
+    <!-- Clickable Text Marquee -->
+    <div class="marquee-container border-y border-gray-800">
+        <div class="marquee-content hover:pause-animation">
+            <!-- First Set -->
+            <a href="services/corporate-events/annual-day-celebrations.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/team-building-offsites.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/product-launches.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/reward-recognition.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Reward & Recognition (R&R)</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/conferences-seminars.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/town-hall-meetings.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/trade-shows-exhibitions.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/festive-corporate-parties.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/executive-vip-dinners.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/workshops-training.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
+            <!-- Second Set -->
+            <a href="services/corporate-events/annual-day-celebrations.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/team-building-offsites.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/product-launches.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/reward-recognition.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Reward & Recognition (R&R)</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/conferences-seminars.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/town-hall-meetings.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/trade-shows-exhibitions.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/festive-corporate-parties.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/executive-vip-dinners.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
+            <a href="services/corporate-events/workshops-training.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-[#0f172a] text-gray-400 pt-20 pb-10 border-t border-gray-800">
@@ -610,6 +653,8 @@
         </div>
     </div>
 
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <!-- External JavaScript -->
     <script src="js/main.js"></script>
 </body>

@@ -205,4 +205,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initialize Typed.js for Hero Section
+    const titleEl = document.getElementById('typed-title');
+    const subtitleEl = document.getElementById('typed-subtitle');
+    
+    if (titleEl && subtitleEl) {
+        let titleTyped = null;
+        let subtitleTyped = null;
+
+        const runTypingLoop = () => {
+            titleEl.innerHTML = '';
+            subtitleEl.innerHTML = '';
+            
+            titleTyped = new Typed('#typed-title', {
+                strings: ['Transforming Moments into <br class="hidden md:block" /> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-red">Masterpieces.</span>'],
+                typeSpeed: 50,
+                showCursor: true,
+                cursorChar: '|',
+                onComplete: function(titleSelf) {
+                    titleSelf.cursor.style.display = 'none'; // Hide title cursor
+                    
+                    subtitleTyped = new Typed('#typed-subtitle', {
+                        strings: ['Expert Tent Decor, Corporate Events, and Game Installations for your perfect celebration.'],
+                        typeSpeed: 30,
+                        showCursor: true,
+                        cursorChar: '|',
+                        onComplete: function(subSelf) {
+                            setTimeout(() => {
+                                // Fade out the container before restarting
+                                const container = titleEl.closest('.absolute');
+                                container.style.transition = 'opacity 0.8s ease-in-out';
+                                container.style.opacity = '0';
+                                
+                                setTimeout(() => {
+                                    // Destroy instances and reset opacity
+                                    titleSelf.destroy();
+                                    subSelf.destroy();
+                                    container.style.opacity = '1';
+                                    runTypingLoop();
+                                }, 800);
+                            }, 4000); // 4-second pause to read
+                        }
+                    });
+                }
+            });
+        };
+        
+        runTypingLoop();
+    }
 });
