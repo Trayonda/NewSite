@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>Admin Login | EventSetup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; font-family: 'Inter', sans-serif; overflow: hidden; }
+        .login-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        input { background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); color: white; outline: none; }
+        input:focus { border-color: #f43f5e; box-shadow: 0 0 15px rgba(244, 63, 94, 0.2); }
+    </style>
+</head>
+<body class="h-screen flex items-center justify-center">
+    <div class="login-card w-[450px] p-10 rounded-[2.5rem] shadow-2xl relative z-10">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-black text-white mb-2">EventSetup <span class="text-rose-500">CMS</span></h1>
+            <p class="text-slate-400 text-sm tracking-widest uppercase font-bold">Admin Authorization</p>
+        </div>
+
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-1">Username</label>
+                <input type="text" id="username" placeholder="admin" class="w-full p-4 rounded-2xl text-lg" required>
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-2 ml-1">Password</label>
+                <input type="password" id="password" placeholder="••••••••" class="w-full p-4 rounded-2xl text-lg" required>
+            </div>
+            
+            <div id="error-msg" class="text-rose-500 text-xs font-bold text-center hidden">
+                <i class="fas fa-exclamation-circle mr-1"></i> Invalid Credentials. Access Denied.
+            </div>
+
+            <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white py-4 rounded-2xl font-black text-lg transition-all">
+                SECURE LOGIN <i class="fas fa-shield-alt ml-2"></i>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Security: Prevent Inspect
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) return false; };
+
+        document.getElementById('login-form').onsubmit = (e) => {
+            e.preventDefault();
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            
+            // Explicitly check for the updated password first
+            const savedPass = localStorage.getItem('ES_ADMIN_PASSWORD');
+            const defaultPass = 'Test@123';
+            
+            // If user has set a new password, use it. Otherwise use default.
+            const validPass = savedPass ? savedPass : defaultPass;
+            
+            if (u === 'admin' && p === validPass) {
+                sessionStorage.setItem('isAdmin', 'true');
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('error-msg').classList.remove('hidden');
+                setTimeout(() => document.getElementById('error-msg').classList.add('hidden'), 3000);
+            }
+        };
+    </script>
+</body>
+</html>

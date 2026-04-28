@@ -1,6 +1,14 @@
+:root {
+    --brand-red: #f43f5e;
+    --brand-blue: #1e3a8a;
+    --bg-dark: #1e293b;
+    --font-main: 'Inter', sans-serif;
+}
+
 body {
-    background-color: #1e293b;
+    background-color: var(--bg-dark);
     color: #f1f5f9;
+    font-family: var(--font-main);
 }
 
 .glass-nav {

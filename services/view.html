@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>Service Details | EventSetup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/services.js"></script>
+    <script src="../js/engine.js"></script>
+    <style>
+        .page-hero {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.7));
+        }
+    </style>
+</head>
+<body class="bg-[#1e293b] text-blue-100 min-h-screen">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav py-5">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-bold biz-name bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">EventSetup</a>
+            <div class="flex space-x-8 items-center font-medium">
+                <a href="../index.html" class="hover:text-brand-red transition-all">Home</a>
+                <a href="explorer.html" class="hover:text-brand-red transition-all">Services</a>
+                <a href="../gallery.html" class="hover:text-brand-red transition-all">Gallery</a>
+                <a href="../index.html#book" class="bg-brand-red px-6 py-2 rounded-full text-white">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section id="view-hero" class="relative pt-48 pb-32 flex items-center justify-center page-hero px-4">
+        <div class="max-w-4xl mx-auto z-10 relative text-center">
+            <nav class="flex justify-center text-xs text-brand-red uppercase tracking-widest font-bold mb-8">
+                <a href="explorer.html" class="hover:underline">Services</a> <span class="mx-3 text-white/20">/</span> <span id="view-cat">Category</span>
+            </nav>
+            <h1 id="view-name" class="text-6xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl">Service Title</h1>
+            <p id="view-sub" class="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto font-light leading-relaxed">
+                Service sub-description goes here.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detail Content Section -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h2 id="view-side-title" class="text-4xl md:text-5xl font-black text-white mb-6">Celebrate Excellence</h2>
+                        <div class="w-20 h-2 bg-gradient-to-r from-brand-blue to-brand-red rounded-full"></div>
+                    </div>
+                    
+                    <p id="view-desc" class="text-xl text-blue-100/60 leading-relaxed">
+                        Full detailed description of the service.
+                    </p>
+
+                    <ul id="view-bullets" class="space-y-5">
+                        <!-- Bullets injected here -->
+                    </ul>
+
+                    <div class="pt-10">
+                        <button id="view-book-btn" class="inline-block px-10 py-5 rounded-2xl bg-brand-red text-white font-black text-lg hover:shadow-[0_0_30px_rgba(244,63,94,0.4)] transition-all transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Finalize & Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-red/20 to-brand-blue/20 blur-2xl rounded-[3rem]"></div>
+                    <img id="view-side-img" src="" alt="Service Detail" class="rounded-[2.5rem] shadow-2xl relative z-10 border border-white/10 w-full object-cover aspect-[4/3]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 py-12 border-t border-white/5 text-center text-blue-100/30 text-sm tracking-widest uppercase">
+        <p class="biz-name">EVENTSETUP PRIVATE LIMITED</p>
+        <p class="mt-2 text-[10px]">&copy; 2026 ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const serviceId = params.get('id');
+            const cat = params.get('cat');
+
+            if (!serviceId || !cat) {
+                window.location.href = 'explorer.html';
+                return;
+            }
+
+            const categoryData = servicesData[cat];
+            const service = categoryData.items.find(s => s.id === serviceId);
+
+            if (service) {
+                // Hero Data
+                document.getElementById('view-name').textContent = service.name;
+                document.getElementById('view-sub').textContent = service.description;
+                document.getElementById('view-hero').style.backgroundImage = `url('${service.image || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000'}')`;
+                document.getElementById('view-cat').textContent = cat;
+
+                // Detail Section Data
+                document.getElementById('view-side-title').textContent = service.sideTitle || "What We Offer";
+                document.getElementById('view-desc').textContent = service.longContent || "Professional end-to-end management for your events.";
+                document.getElementById('view-side-img').src = service.sideImage || service.image;
+
+                // Bullets
+                const bullets = service.bullets ? service.bullets.split(',') : ["Premium Setups", "Expert Coordination", "High-quality Standards"];
+                const bulletList = document.getElementById('view-bullets');
+                bulletList.innerHTML = '';
+                bullets.forEach(b => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start text-lg text-blue-100/80';
+                    li.innerHTML = `<i class="fas fa-check-circle text-brand-red mt-1.5 mr-4"></i><span>${b.trim()}</span>`;
+                    bulletList.appendChild(li);
+                });
+
+                // WhatsApp
+                document.getElementById('view-book-btn').onclick = () => {
+                    const bizPhone = (JSON.parse(localStorage.getItem('siteConfig'))?.business?.whatsapp) || "919650624535";
+                    const msg = `Hello! I'm interested in the *${service.name}* service. Please provide more details.`;
+                    window.open(`https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+                };
+            }
+        });
+    </script>
+</body>
+</html>

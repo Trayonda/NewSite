@@ -23,6 +23,8 @@
             }
         }
     </script>
+    <script src="../js/services.js"></script>
+    <script src="../js/engine.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .sidebar-link.active {
@@ -46,7 +48,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                    <a href="../index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red biz-name">
                         EventSetup
                     </a>
                 </div>
@@ -86,7 +88,7 @@
                 <aside class="lg:w-64 shrink-0">
                     <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sticky top-28 shadow-2xl">
                         <h3 class="text-xs font-bold text-blue-300/50 uppercase tracking-widest mb-6 px-4">Categories</h3>
-                        <nav class="space-y-2">
+                        <nav id="sidebar-nav" class="space-y-2">
                             <a href="#" data-category="corporate" class="sidebar-link active flex items-center px-4 py-3 rounded-xl transition-all font-medium">
                                 <i class="fas fa-building w-6"></i> Corporate
                             </a>
@@ -174,6 +176,5 @@
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
-    <script src="../js/services.js"></script>
 </body>
 </html>

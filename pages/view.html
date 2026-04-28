@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>Page | EventSetup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/engine.js"></script>
+</head>
+<body class="bg-[#1e293b] text-blue-100 min-h-screen">
+    <nav class="fixed w-full z-50 glass-nav py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-bold biz-name">EventSetup</a>
+            <a href="../index.html" class="hover:text-brand-red transition-colors">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 id="page-title" class="text-6xl font-black text-white mb-12"></h1>
+            <div id="page-content" class="prose prose-invert max-w-none text-blue-100/70 text-xl leading-loose">
+                <!-- Content injected -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const pageId = params.get('id');
+            const customPages = JSON.parse(localStorage.getItem('customPages')) || [];
+            const page = customPages.find(p => p.id === pageId);
+
+            if (page) {
+                document.getElementById('page-title').textContent = page.title;
+                document.getElementById('page-content').innerHTML = page.content;
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+    </script>
+</body>
+</html>
