@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSetup Pvt Ltd | Premium Corporate Events, Weddings & Tent Decor</title>
+    <meta name="description" content="Top-tier event management services including corporate setups, luxury weddings, tent decor, and party game installations in Gurugram, Delhi NCR and surrounding areas.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="EventSetup Pvt Ltd | Premium Corporate Events, Weddings & Tent Decor">
+    <meta property="og:description" content="Top-tier event management services including corporate setups, luxury weddings, tent decor, and party game installations in Gurugram, Delhi NCR and surrounding areas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eventsetup.com/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#1e3a8a', // blue-900
+                        'brand-red': '#f43f5e',  // rose-500
+                        'brand-red-hover': '#e11d48', // rose-600
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-nav text-white py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                        EventSetup
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-brand-red transition-colors duration-200 font-medium">Home</a>
+                    <a href="about.html" class="hover:text-brand-red transition-colors duration-200 font-medium">About</a>
+                    <a href="#services" class="hover:text-brand-red transition-colors duration-200 font-medium">Services</a>
+                    <a href="gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
+                        <i class="fas fa-map-marker-alt text-brand-red"></i>
+                        <span class="location-text">Select Location</span>
+                    </button>
+                    <a href="#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(244,63,94,0.39)]">Book Now</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-blue absolute w-full left-0 top-full shadow-2xl border-t border-white/10">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-brand-red hover:bg-blue-800 rounded-lg font-medium transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
+                <a href="#services" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Services</a>
+                <a href="gallery.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-brand-red"></i>
+                    <span class="location-text">Select Location</span>
+                </button>
+                <a href="#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover transition-colors">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center hero-bg px-4">
+        <div class="max-w-5xl mx-auto z-10 relative mt-16 text-center md:text-left flex flex-col md:items-start items-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-red/20 border border-brand-red/50 text-brand-red text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">Premium Experiences</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Transforming Moments into <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-red">Masterpieces.</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl drop-shadow-md font-light leading-relaxed">
+                Expert Tent Decor, Corporate Events, and Game Installations for your perfect celebration.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+                <a href="#services" class="px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold hover:bg-white hover:text-brand-blue transition-all duration-300 text-center backdrop-blur-sm">
+                    Our Services
+                </a>
+                <a href="#book" class="px-8 py-4 rounded-full bg-brand-blue text-white font-semibold hover:bg-brand-red hover:shadow-[0_8px_30px_rgb(244,63,94,0.3)] transition-all duration-300 transform hover:-translate-y-1 text-center">
+                    Book Your Event
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-all backdrop-blur-sm">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-brand-red tracking-widest uppercase mb-3">Our Expertise</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-brand-blue">Premium Services<span class="dynamic-city-text"></span></h3>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-brand-blue to-brand-red mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <a href="services/corporate-events.html" class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                    <div class="w-14 h-14 bg-white shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-blue transition-colors duration-300">
+                        <i class="fas fa-briefcase text-2xl text-brand-blue group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-red transition-colors">Corporate Events</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Professional setups, state-of-the-art PA systems, and elegant seating designed for impactful business gatherings.
+                    </p>
+                    <div class="mt-4 text-brand-blue font-medium text-sm group-hover:text-brand-red transition-colors">Read More &rarr;</div>
+                </a>
+
+                <!-- Service 2 -->
+                <a href="services/weddings.html" class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                    <div class="w-14 h-14 bg-white shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
+                        <i class="fas fa-glass-cheers text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-red transition-colors">Weddings & Celebrations</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Luxury tent decor, ambient lighting, and exquisite floral arrangements to make your special day truly memorable.
+                    </p>
+                    <div class="mt-4 text-brand-blue font-medium text-sm group-hover:text-brand-red transition-colors">Read More &rarr;</div>
+                </a>
+
+                <!-- Service 3 -->
+                <a href="services/tent-decor.html" class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                    <div class="w-14 h-14 bg-white shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-blue transition-colors duration-300">
+                        <i class="fas fa-campground text-2xl text-brand-blue group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-red transition-colors">Tent & Decor</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        High-quality, weather-proof tents and premium thematic decor items tailored perfectly to your event's vision.
+                    </p>
+                    <div class="mt-4 text-brand-blue font-medium text-sm group-hover:text-brand-red transition-colors">Read More &rarr;</div>
+                </a>
+
+                <!-- Service 4 -->
+                <a href="services/party-games.html" class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                    <div class="w-14 h-14 bg-white shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
+                        <i class="fas fa-gamepad text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-red transition-colors">Party Games Installation</h4>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Engaging game setups, inflatables, and interactive activities guaranteed to entertain guests of all ages.
+                    </p>
+                    <div class="mt-4 text-brand-blue font-medium text-sm group-hover:text-brand-red transition-colors">Read More &rarr;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="py-24 relative bg-brand-blue overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-blue-600/30 blur-[100px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[50%] rounded-full bg-brand-red/20 blur-[100px]"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold text-brand-red tracking-widest uppercase mb-3">Seamless Process</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-white">Request a Booking</h3>
+                <p class="text-blue-100 mt-4 max-w-2xl mx-auto font-light">Select your services and send us your details. Our team will connect with you immediately via WhatsApp to finalize your setup.</p>
+            </div>
+
+            <div class="glass-card rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10">
+                <form id="booking-form" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Full Name -->
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium text-blue-100 mb-2">Full Name <span class="text-brand-red">*</span></label>
+                            <input type="text" id="fullName" required placeholder="Enter your full name" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
+                        </div>
+                        <!-- WhatsApp Number -->
+                        <div>
+                            <label for="whatsappNum" class="block text-sm font-medium text-blue-100 mb-2">WhatsApp Number <span class="text-brand-red">*</span></label>
+                            <input type="tel" id="whatsappNum" required placeholder="+91 98765 43210" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
+                        </div>
+                        <!-- Event Date -->
+                        <div>
+                            <label for="eventDate" class="block text-sm font-medium text-blue-100 mb-2">Event Date <span class="text-brand-red">*</span></label>
+                            <input type="date" id="eventDate" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10 [color-scheme:dark]">
+                        </div>
+                        <!-- Event Location -->
+                        <div>
+                            <label for="eventLocation" class="block text-sm font-medium text-blue-100 mb-2">Event Location (City/Venue) <span class="text-brand-red">*</span></label>
+                            <input type="text" id="eventLocation" required placeholder="e.g. Gurugram, DLF Phase 3" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
+                        </div>
+                    </div>
+
+                    <!-- Services Required -->
+                    <div class="pt-4 border-t border-white/10">
+                        <label class="block text-sm font-medium text-blue-100 mb-5">Services Required (Select multiple) <span class="text-brand-red">*</span></label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <label class="custom-checkbox relative flex items-center cursor-pointer group bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-red/50 transition-all">
+                                <input type="checkbox" name="services" value="Corporate Event" class="peer sr-only">
+                                <div class="w-6 h-6 border-2 border-white/30 rounded flex items-center justify-center bg-transparent peer-focus:ring-2 peer-focus:ring-brand-red transition-all group-hover:border-white/60">
+                                    <svg class="hidden w-3.5 h-3.5 text-white pointer-events-none" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5L5.5 11L16 1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-3 text-white font-medium select-none">Corporate Event</span>
+                            </label>
+
+                            <label class="custom-checkbox relative flex items-center cursor-pointer group bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-red/50 transition-all">
+                                <input type="checkbox" name="services" value="Wedding" class="peer sr-only">
+                                <div class="w-6 h-6 border-2 border-white/30 rounded flex items-center justify-center bg-transparent peer-focus:ring-2 peer-focus:ring-brand-red transition-all group-hover:border-white/60">
+                                    <svg class="hidden w-3.5 h-3.5 text-white pointer-events-none" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5L5.5 11L16 1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-3 text-white font-medium select-none">Wedding & Celebrations</span>
+                            </label>
+
+                            <label class="custom-checkbox relative flex items-center cursor-pointer group bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-red/50 transition-all">
+                                <input type="checkbox" name="services" value="Tent Decor" class="peer sr-only">
+                                <div class="w-6 h-6 border-2 border-white/30 rounded flex items-center justify-center bg-transparent peer-focus:ring-2 peer-focus:ring-brand-red transition-all group-hover:border-white/60">
+                                    <svg class="hidden w-3.5 h-3.5 text-white pointer-events-none" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5L5.5 11L16 1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-3 text-white font-medium select-none">Tent & Decor</span>
+                            </label>
+
+                            <label class="custom-checkbox relative flex items-center cursor-pointer group bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-red/50 transition-all">
+                                <input type="checkbox" name="services" value="Party Games" class="peer sr-only">
+                                <div class="w-6 h-6 border-2 border-white/30 rounded flex items-center justify-center bg-transparent peer-focus:ring-2 peer-focus:ring-brand-red transition-all group-hover:border-white/60">
+                                    <svg class="hidden w-3.5 h-3.5 text-white pointer-events-none" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 6.5L5.5 11L16 1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="ml-3 text-white font-medium select-none">Party Games Installation</span>
+                            </label>
+                        </div>
+                        <p id="service-error" class="text-brand-red bg-brand-red/10 border border-brand-red/20 px-4 py-2 rounded-lg text-sm mt-4 hidden items-center"><i class="fas fa-exclamation-circle mr-2"></i> Please select at least one service.</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-6">
+                        <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-5 px-8 rounded-xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center space-x-3 text-lg">
+                            <i class="fab fa-whatsapp text-3xl"></i>
+                            <span>Send Request via WhatsApp</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] text-gray-400 pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="md:col-span-5">
+                    <a href="index.html" class="text-3xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red mb-6 inline-block">
+                        EventSetup
+                    </a>
+                    <p class="leading-relaxed mb-8 max-w-sm">
+                        Premium event management company specializing in corporate events, luxury weddings, and comprehensive tent & decor setups across Delhi NCR.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-3">
+                    <h4 class="text-white text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> About Us</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> Gallery</a></li>
+                        <li><a href="index.html#services" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="md:col-span-4">
+                    <h4 class="text-white text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue mr-4 shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="mt-2">Sector 29, Gurugram,<br>Haryana, India</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand-red/20 flex items-center justify-center text-brand-red mr-4 shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 mr-4 shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>hello@eventsetup.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 EventSetup Private Limited. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
