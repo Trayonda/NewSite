@@ -171,22 +171,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         const lon = position.coords.longitude;
                         
                         try {
-                            // Using OpenStreetMap Nominatim API (Free, no API key required)
-                            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`);
+                            // Using OpenStreetMap Nominatim API with higher zoom for detailed area
+                            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18`);
                             const data = await response.json();
                             
-                            let city = "Unknown Location";
+                            let locationName = "Unknown Location";
                             if (data.address) {
-                                city = data.address.city || data.address.town || data.address.state_district || data.address.state;
+                                // Try to get the most specific area first
+                                const area = data.address.suburb || data.address.neighbourhood || data.address.road || data.address.industrial || data.address.subdivision;
+                                const city = data.address.city || data.address.town || data.address.village || data.address.state_district;
+                                
+                                if (area && city) {
+                                    locationName = `${area}, ${city}`;
+                                } else {
+                                    locationName = area || city || data.address.state || "Unknown Location";
+                                }
                             }
                             
-                            locationTexts.forEach(el => el.textContent = city);
-                            document.querySelectorAll('.dynamic-city-text').forEach(el => el.textContent = ` in ${city}`);
-                            localStorage.setItem('userLocation', city);
+                            locationTexts.forEach(el => el.textContent = locationName);
+                            document.querySelectorAll('.dynamic-city-text').forEach(el => el.textContent = ` in ${locationName}`);
+                            localStorage.setItem('userLocation', locationName);
                             
                             if (eventLocationInput) {
-                                eventLocationInput.value = city;
-                                // Highlight input to show it was auto-filled
+                                eventLocationInput.value = locationName;
                                 eventLocationInput.classList.add('ring-2', 'ring-brand-red');
                                 setTimeout(() => eventLocationInput.classList.remove('ring-2', 'ring-brand-red'), 1500);
                             }
@@ -198,9 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     (error) => {
                         console.error("Geolocation error:", error);
                         locationTexts.forEach(el => el.textContent = "Enable Location");
+                        // Show popup if location is denied or failed
+                        alert("Enable location to find best service in your area. This helps us show available setups and pricing for your specific location.");
                     }
                 );
             } else {
+                alert("Geolocation is not supported by your browser. Please enter your location manually.");
                 document.querySelectorAll('.location-text').forEach(el => el.textContent = "Not Supported");
             }
         });
