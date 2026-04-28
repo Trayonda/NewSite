@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | EventSetup Pvt Ltd</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-blue': '#1e3a8a', // blue-900
+                        'brand-red': '#f43f5e',  // rose-500
+                        'brand-red-hover': '#e11d48', // rose-600
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-nav text-white py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                        EventSetup
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Home</a>
+                    <a href="about.html" class="text-brand-red transition-colors duration-200 font-medium">About</a>
+                    <a href="index.html#services" class="hover:text-brand-red transition-colors duration-200 font-medium">Services</a>
+                    <a href="gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
+                        <i class="fas fa-map-marker-alt text-brand-red"></i>
+                        <span class="location-text">Select Location</span>
+                    </button>
+                    <a href="index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(244,63,94,0.39)]">Book Now</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-blue absolute w-full left-0 top-full shadow-2xl border-t border-white/10">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-3 text-brand-red hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
+                <a href="index.html#services" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Services</a>
+                <a href="gallery.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-brand-red"></i>
+                    <span class="location-text">Select Location</span>
+                </button>
+                <a href="index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover transition-colors">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center justify-center page-hero px-4">
+        <div class="max-w-4xl mx-auto z-10 relative text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                About EventSetup
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed">
+                We are a premier event management company dedicated to crafting unforgettable experiences through meticulous planning and premium execution.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-brand-red tracking-widest uppercase mb-3">Our Story</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-blue mb-6">Crafting Masterpieces Since 2015</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        EventSetup Private Limited was born out of a passion for creating extraordinary moments. What started as a boutique decor agency has grown into a full-scale premium event management firm serving corporate clients, luxury weddings, and high-profile private celebrations.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our philosophy is simple: Every event is a unique story waiting to be told. We combine innovative design, state-of-the-art technology, and flawless execution to ensure that your vision is brought to life perfectly.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8 mt-10 border-t border-gray-100 pt-8">
+                        <div>
+                            <h4 class="text-4xl font-black text-brand-red mb-2">500+</h4>
+                            <p class="text-sm text-gray-500 font-medium">Events Executed</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-black text-brand-red mb-2">100%</h4>
+                            <p class="text-sm text-gray-500 font-medium">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1000&auto=format&fit=crop" alt="Event setup team" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-8 -left-8 bg-brand-blue text-white p-8 rounded-2xl shadow-xl hidden md:block border-4 border-white">
+                        <i class="fas fa-award text-4xl text-brand-red mb-4"></i>
+                        <h4 class="text-xl font-bold">Premium Quality</h4>
+                        <p class="text-sm text-blue-200 mt-2">Award-winning setups</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] text-gray-400 pt-20 pb-10 border-t border-gray-800">
+        <!-- Footer content (same as index) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="md:col-span-5">
+                    <a href="index.html" class="text-3xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red mb-6 inline-block">
+                        EventSetup
+                    </a>
+                    <p class="leading-relaxed mb-8 max-w-sm">
+                        Premium event management company specializing in corporate events, luxury weddings, and comprehensive tent & decor setups across Delhi NCR.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-3">
+                    <h4 class="text-white text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> About Us</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-red transition-colors inline-flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-brand-red mr-3"></span> Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="md:col-span-4">
+                    <h4 class="text-white text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-5">
+                        <li class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue mr-4 shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+91 98765 43210</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2026 EventSetup Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

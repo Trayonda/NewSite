@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | EventSetup Pvt Ltd</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        'brand-blue': '#1e3a8a',
+                        'brand-red': '#f43f5e',
+                        'brand-red-hover': '#e11d48',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-hero {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-nav text-white py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                        EventSetup
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Home</a>
+                    <a href="about.html" class="hover:text-brand-red transition-colors duration-200 font-medium">About</a>
+                    <a href="index.html#services" class="hover:text-brand-red transition-colors duration-200 font-medium">Services</a>
+                    <a href="gallery.html" class="text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
+                        <i class="fas fa-map-marker-alt text-brand-red"></i>
+                        <span class="location-text">Select Location</span>
+                    </button>
+                    <a href="index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(244,63,94,0.39)]">Book Now</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-blue absolute w-full left-0 top-full shadow-2xl border-t border-white/10">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Home</a>
+                <a href="about.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
+                <a href="gallery.html" class="block px-3 py-3 text-brand-red hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-brand-red"></i>
+                    <span class="location-text">Select Location</span>
+                </button>
+                <a href="index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover transition-colors">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center justify-center page-hero px-4">
+        <div class="max-w-4xl mx-auto z-10 relative text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">Event Gallery</h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto font-light leading-relaxed">
+                A glimpse into the magical moments and premium setups we've crafted.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <p class="text-gray-500 mb-4 bg-yellow-50 border border-yellow-200 p-4 rounded-lg inline-block text-sm">
+                    <i class="fas fa-info-circle text-yellow-500 mr-2"></i>
+                    <strong>Admin Note:</strong> To add more images to this gallery, upload the image files to your hosting server (e.g., inside an `images` folder) and add the file names to the `galleryImages` array in the page's source code at the bottom.
+                </p>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Images will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] text-gray-400 pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 pt-8 flex flex-col justify-center items-center text-sm">
+                <p>&copy; 2026 EventSetup Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Gallery Script -->
+    <script>
+        // ==========================================
+        // HOW TO ADD NEW IMAGES:
+        // 1. Upload your image to the server.
+        // 2. Add the URL or file path (e.g., 'images/my-new-event.jpg') to the array below.
+        // ==========================================
+        const galleryImages = [
+            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop"
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+
+        galleryImages.forEach(imgSrc => {
+            const imgDiv = document.createElement('div');
+            imgDiv.className = 'group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-64 cursor-pointer';
+            
+            imgDiv.innerHTML = `
+                <img src="${imgSrc}" alt="Event image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <i class="fas fa-search-plus text-white text-2xl shadow-lg"></i>
+                </div>
+            `;
+            
+            // Simple click to view in full size
+            imgDiv.addEventListener('click', () => {
+                window.open(imgSrc, '_blank');
+            });
+            
+            galleryGrid.appendChild(imgDiv);
+        });
+    </script>
+</body>
+</html>
