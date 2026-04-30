@@ -207,24 +207,8 @@ function updateCartUI() {
 
 // Initial Run
 document.addEventListener('DOMContentLoaded', () => {
-    const explorerContent = document.getElementById('explorer-content');
-    if (explorerContent) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const cat = urlParams.get('cat') || 'corporate';
-        
-        // Initial render
-        window.renderServices(cat);
-
-        // Update sidebar links UI to match initial category
-        document.querySelectorAll('.sidebar-link').forEach(link => {
-            if (link.dataset.category === cat) {
-                link.classList.add('active', 'bg-brand-red', 'text-white', 'shadow-lg', 'shadow-brand-red/30');
-                link.classList.remove('text-slate-600', 'hover:bg-slate-50');
-            } else {
-                link.classList.remove('active', 'bg-brand-red', 'text-white', 'shadow-lg', 'shadow-brand-red/30');
-                link.classList.add('text-slate-600', 'hover:bg-slate-50');
-            }
-        });
+    if (document.getElementById('explorer-content')) {
+        window.renderServices('corporate');
     }
 
     // Handle Book Button Click on Explorer Page
