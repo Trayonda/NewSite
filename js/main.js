@@ -277,11 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const bookNowBtns = document.querySelectorAll('.book-now-btn, a[href$="#book"], a[href$="explorer.html"]');
+        const bookNowBtns = document.querySelectorAll('.book-now-btn, a[href$="#book"]');
         bookNowBtns.forEach(btn => {
-            const pathParts = window.location.pathname.split('/').filter(p => p);
             const isInSubDir = window.location.pathname.includes('/services/');
-            const isInDeepDir = pathParts.length > 2 && isInSubDir;
+            const pathParts = window.location.pathname.split('/').filter(p => p);
+            // Check if we are in a sub-directory of services (e.g., services/corporate-events/)
+            const isInDeepDir = isInSubDir && (pathParts.includes('corporate-events') || pathParts.includes('weddings') || pathParts.includes('tents') || pathParts.includes('games'));
             
             let prefix = '';
             if (isInDeepDir) prefix = '../../';
@@ -294,7 +295,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.href = cartPath;
                 if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Go to Bucket';
             } else {
-                btn.href = explorerPath;
+                // For regular #book links, we want to keep the hash if on index, or point to index#book
+                if (btn.getAttribute('href').includes('#book')) {
+                    btn.href = (isInSubDir ? prefix + 'index.html#book' : '#book');
+                } else {
+                    btn.href = explorerPath;
+                }
                 if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Book Now';
             }
         });
@@ -526,6 +532,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.className = btn.className.replace('bg-brand-red text-white shadow-lg', 'bg-brand-blue/5 text-brand-blue hover:bg-brand-blue hover:text-white border border-brand-blue/10');
                 btn.innerHTML = `<i class="fas fa-cart-plus mr-2"></i> Add to Bucket`;
             }
+    // --- Glass Break Effect for Expertise Cards ---
+    document.querySelectorAll('.expertise-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            
+            // Create fragments
+            for (let i = 0; i < 15; i++) {
+                const fragment = document.createElement('div');
+                fragment.className = 'glass-fragment';
+                
+                // Random position and trajectory
+                const size = Math.random() * 20 + 10;
+                fragment.style.width = `${size}px`;
+                fragment.style.height = `${size}px`;
+                fragment.style.left = `${e.clientX - 10}px`;
+                fragment.style.top = `${e.clientY - 10}px`;
+                fragment.style.position = 'fixed';
+                
+                fragment.style.setProperty('--tx', `${(Math.random() - 0.5) * 400}px`);
+                fragment.style.setProperty('--ty', `${(Math.random() - 0.5) * 400}px`);
+                fragment.style.setProperty('--tr', `${Math.random() * 360}deg`);
+                
+                document.body.appendChild(fragment);
+                setTimeout(() => fragment.remove(), 1000);
+            }
+
+            // Apply break class to card
+            this.classList.add('glass-break');
+
+            // Navigate after animation
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 550);
         });
     });
 });
