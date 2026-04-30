@@ -46,38 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Corporate Modal Logic
-    const corporateCheckbox = document.querySelector('input[value="Corporate Event"]');
-    const corporateModal = document.getElementById('corporate-modal');
-    const closeModalBtn = document.getElementById('close-modal');
-    const saveModalBtn = document.getElementById('save-modal-btn');
-
-    if (corporateCheckbox && corporateModal) {
-        corporateCheckbox.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                corporateModal.classList.remove('hidden');
-                corporateModal.classList.add('flex');
-            } else {
-                // If unchecked, uncheck all sub-services
-                document.querySelectorAll('.corp-sub-cb').forEach(cb => cb.checked = false);
-            }
-        });
-
-        const hideModal = () => {
-            corporateModal.classList.add('hidden');
-            corporateModal.classList.remove('flex');
-        };
-
-        closeModalBtn.addEventListener('click', hideModal);
-        saveModalBtn.addEventListener('click', hideModal);
-
-        // Close when clicking outside
-        corporateModal.addEventListener('click', (e) => {
-            if (e.target === corporateModal) {
-                hideModal();
-            }
-        });
-    }
+    // Corporate Modal logic removed as products are now dynamically loaded.
 
     // Booking Form Logic
     const bookingForm = document.getElementById('booking-form');
@@ -109,15 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Gather services into an array
             const servicesArray = Array.from(checkboxes).map(cb => cb.value);
 
-            // Check for Corporate Sub-Services
-            if (servicesArray.includes('Corporate Event')) {
-                const subCheckboxes = document.querySelectorAll('.corp-sub-cb:checked');
-                if (subCheckboxes.length > 0) {
-                    const subServicesArray = Array.from(subCheckboxes).map(cb => cb.value);
-                    const index = servicesArray.indexOf('Corporate Event');
-                    servicesArray[index] = `Corporate Event (${subServicesArray.join(', ')})`;
-                }
-            }
+            // Formatted directly since products are now detailed
 
             const servicesString = servicesArray.join(', ');
 
@@ -263,5 +224,31 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         runTypingLoop();
+    }
+
+    // Populate Dynamic Booking Services Grid
+    const bookingServicesGrid = document.getElementById('dynamic-booking-services');
+    if (bookingServicesGrid && window.servicesData) {
+        bookingServicesGrid.innerHTML = '';
+        Object.values(window.servicesData).forEach(category => {
+            category.items.forEach(item => {
+                const label = document.createElement('label');
+                label.className = 'custom-checkbox relative flex items-center cursor-pointer group bg-white/5 p-4 rounded-xl border border-white/5 hover:border-brand-red/50 transition-all';
+                label.innerHTML = `
+                    <input type="checkbox" name="services" value="${item.name}" class="peer sr-only">
+                    <div class="w-6 h-6 border-2 border-white/30 rounded flex items-center justify-center bg-transparent peer-focus:ring-2 peer-focus:ring-brand-red transition-all group-hover:border-white/60 shrink-0">
+                        <svg class="hidden w-3.5 h-3.5 text-white pointer-events-none" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6.5L5.5 11L16 1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="ml-3 text-white font-medium select-none truncate" title="${item.name}">${item.name}</span>
+                `;
+                bookingServicesGrid.appendChild(label);
+            });
+        });
+        
+        if(bookingServicesGrid.children.length === 0) {
+            bookingServicesGrid.innerHTML = '<p class="text-white/50 text-sm italic col-span-full">No specific services loaded yet. Please contact us.</p>';
+        }
     }
 });

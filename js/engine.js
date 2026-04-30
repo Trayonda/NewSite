@@ -3,10 +3,10 @@
  * Handles real-time updates from Admin Dashboard
  */
 
-(function() {
+(function () {
     // 1. Load Configurations from LocalStorage
     const config = JSON.parse(localStorage.getItem('siteConfig'));
-    
+
     if (config) {
         const root = document.documentElement;
         if (config.appearance.primary) root.style.setProperty('--brand-red', config.appearance.primary);
@@ -21,7 +21,7 @@
             if (config.business.whatsapp) {
                 document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
                     const urlStr = link.href;
-                    if(urlStr.includes('wa.me/')) {
+                    if (urlStr.includes('wa.me/')) {
                         const parts = urlStr.split('?text=');
                         const text = parts.length > 1 ? '?text=' + parts[1] : '';
                         link.href = `https://wa.me/${config.business.whatsapp}${text}`;
@@ -36,13 +36,13 @@
     if (customServices && typeof servicesData !== 'undefined') {
         Object.keys(customServices).forEach(cat => {
             if (!servicesData[cat]) {
-                servicesData[cat] = { 
-                    title: cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, ' '), 
+                servicesData[cat] = {
+                    title: cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, ' '),
                     description: `Professional services for ${cat}.`,
-                    items: [] 
+                    items: []
                 };
             }
-            
+
             const mappedServices = customServices[cat].map((s, i) => ({
                 id: `custom-${cat}-${i}`,
                 name: s.name,
@@ -55,7 +55,7 @@
                 longContent: s.longContent,
                 url: `view.html?id=custom-${cat}-${i}&cat=${cat}`
             }));
-            
+
             servicesData[cat].items = [...mappedServices, ...(servicesData[cat].items || [])];
         });
     }
@@ -64,7 +64,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const customCats = JSON.parse(localStorage.getItem('customCats')) || [];
         const sidebarNav = document.getElementById('sidebar-nav');
-        
+
         if (sidebarNav && customCats.length > 0) {
             customCats.forEach(cat => {
                 if (document.querySelector(`[data-category="${cat.id}"]`)) return;
@@ -85,10 +85,10 @@
                 e.preventDefault();
                 allLinks.forEach(l => l.classList.remove('active', 'bg-brand-red', 'text-white'));
                 allLinks.forEach(l => l.classList.add('text-blue-100', 'hover:bg-white/5'));
-                
+
                 link.classList.add('active', 'bg-brand-red', 'text-white');
                 link.classList.remove('text-blue-100', 'hover:bg-white/5');
-                
+
                 // Call global render function from services.js
                 if (typeof renderServices === 'function') {
                     renderServices(link.dataset.category);

@@ -1,67 +1,188 @@
+/* ==========================================================================
+   EVENTSETUP PRIVATE LIMITED — GLOBAL DESIGN SYSTEM
+   css/style.css
+   
+   This is the SINGLE SOURCE OF TRUTH for all visual styling on the website.
+   All pages (index.html, services/explorer.html, gallery.html, about.html)
+   reference this file.
+
+   HOW IT IS ORGANISED:
+   ─────────────────────────────────────────────────────────────────────────
+   1.  CSS VARIABLES (Design Tokens)   → All colors, fonts, spacing
+   2.  BASE RESET                      → Global resets and body defaults
+   3.  NAVBAR                          → Transparent & scrolled states
+   4.  HERO SECTION                    → Background image & overlay
+   5.  MARQUEE / TICKER                → Text ticker + card carousel
+   6.  BOOKING FORM                    → Custom checkboxes, inputs
+   7.  CARDS                           → Service cards & glass cards
+   8.  SIDEBAR                         → Explorer page category nav
+   9.  CART / SELECTION PANEL          → "Your Selection" sidebar
+   10. MODAL                           → Pop-up animations
+   11. FOOTER                          → Footer dark theme
+   12. ANIMATIONS                      → Keyframes and utilities
+   ========================================================================== */
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   1. CSS VARIABLES — Design Tokens
+   Change a value here and it updates everywhere on the website.
+   ──────────────────────────────────────────────────────────────────────────── */
 :root {
-    --brand-red: #f43f5e;
-    --brand-blue: #1e3a8a;
-    --bg-dark: #1e293b;
-    --font-main: 'Inter', sans-serif;
+    /* ── Brand Colors ──────────────────────────────────────────────────────── */
+    --brand-blue:           #1e3a8a;   /* Primary blue — buttons, accents, links */
+    --brand-blue-light:     #3b82f6;   /* Lighter blue — gradients, hover states  */
+    --brand-red:            #f43f5e;   /* Primary red  — CTAs, highlights, badges */
+    --brand-red-hover:      #e11d48;   /* Darker red   — button hover states      */
+    --brand-whatsapp:       #25D366;   /* WhatsApp green — WhatsApp buttons        */
+
+    /* ── Background Colors ─────────────────────────────────────────────────── */
+    --bg-dark:              #1e293b;   /* Navbar, footer, dark sections           */
+    --bg-darker:            #0f172a;   /* Mobile menu, deeper dark areas          */
+    --bg-page-light:        #f8fafc;   /* Main page body (index.html)             */
+    --bg-explorer-light:    #f8fafc;   /* Service explorer page body              */
+    --bg-card-white:        #ffffff;   /* Service cards, form backgrounds         */
+    --bg-card-subtle:       #f1f5f9;   /* Subtle card hover backgrounds           */
+
+    /* ── Text Colors ───────────────────────────────────────────────────────── */
+    --text-primary:         #0f172a;   /* Main headings                           */
+    --text-body:            #334155;   /* Body text, descriptions                 */
+    --text-muted:           #64748b;   /* Secondary/muted text, placeholders      */
+    --text-light:           #f1f5f9;   /* Text on dark backgrounds                */
+    --text-on-dark-muted:   #94a3b8;   /* Muted text on dark backgrounds          */
+
+    /* ── Border Colors ─────────────────────────────────────────────────────── */
+    --border-light:         #e2e8f0;   /* Card borders, dividers (light pages)    */
+    --border-dark:          rgba(255,255,255,0.08); /* Borders on dark backgrounds */
+
+    /* ── Shadows ───────────────────────────────────────────────────────────── */
+    --shadow-card:          0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-card-hover:    0 8px 32px rgba(0,0,0,0.12);
+    --shadow-navbar:        0 4px 20px rgba(0,0,0,0.4);
+    --shadow-red-glow:      0 0 20px rgba(244,63,94,0.4);
+
+    /* ── Typography ────────────────────────────────────────────────────────── */
+    --font-main:            'Inter', sans-serif;
+    --font-size-xs:         0.75rem;   /* 12px */
+    --font-size-sm:         0.875rem;  /* 14px */
+    --font-size-base:       1rem;      /* 16px */
+    --font-size-lg:         1.125rem;  /* 18px */
+    --font-size-xl:         1.25rem;   /* 20px */
+
+    /* ── Border Radius ─────────────────────────────────────────────────────── */
+    --radius-sm:            0.5rem;    /* 8px  — small elements    */
+    --radius-md:            0.75rem;   /* 12px — buttons, inputs   */
+    --radius-lg:            1rem;      /* 16px — cards             */
+    --radius-xl:            1.5rem;    /* 24px — large cards       */
+    --radius-full:          9999px;    /* pill / circle            */
+
+    /* ── Transitions ───────────────────────────────────────────────────────── */
+    --transition-fast:      all 0.15s ease;
+    --transition-base:      all 0.3s ease;
+    --transition-slow:      all 0.5s ease;
 }
 
+
+/* ────────────────────────────────────────────────────────────────────────────
+   2. BASE RESET
+   Global defaults that apply to all pages.
+   ──────────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* index.html page body — white/light background */
 body {
-    background-color: var(--bg-dark);
-    color: #f1f5f9;
     font-family: var(--font-main);
+    color: var(--text-body);
+    background-color: var(--bg-page-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.glass-nav {
-    background: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+/* explorer.html page body — same light background */
+body.page-explorer {
+    background-color: var(--bg-explorer-light);
+    color: var(--text-body);
 }
-.glass-nav-scrolled {
-    background: rgba(15, 23, 42, 0.95);
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   3. NAVBAR
+   Controls the sticky top navigation bar.
+   — index.html:     starts transparent (.glass-nav), becomes dark on scroll (.glass-nav-scrolled)
+   — explorer.html:  always dark (bg set inline as bg-[#1e293b]/95)
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Initial transparent state — index.html hero area */
+.glass-nav {
+    background: rgba(30, 41, 59, 0.8);         /* var(--bg-dark) at 80% opacity  */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+/* Solid dark state — triggered by JS after scrolling 20px */
+.glass-nav-scrolled {
+    background: rgba(15, 23, 42, 0.95);        /* var(--bg-darker) at 95% opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-navbar);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+/* Company name gradient in navbar */
+.biz-name {
+    /* Gradient from blue-400 → brand-red, set via Tailwind bg-gradient-to-r */
+    /* Controlled by: from-blue-400 to-brand-red classes in HTML */
+    letter-spacing: -0.03em;
 }
 
-/* Custom Checkbox Style */
-.custom-checkbox input:checked + div {
-    background-color: #1e3a8a;
-    border-color: #1e3a8a;
-}
-.custom-checkbox input:checked + div svg {
-    display: block;
-}
 
+/* ────────────────────────────────────────────────────────────────────────────
+   4. HERO SECTION — index.html only
+   Full-screen background image with dark overlay.
+   To change the hero image, update the URL in url('...') below.
+   ──────────────────────────────────────────────────────────────────────────── */
 .hero-bg {
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop');
+    background-image:
+        linear-gradient(to right,
+            rgba(15, 23, 42, 0.92),   /* Left: deep dark (var(--bg-darker))     */
+            rgba(15, 23, 42, 0.45)    /* Right: lighter for image visibility     */
+        ),
+        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed;        /* Parallax effect on scroll             */
 }
 
-/* Infinite Marquee */
+
+/* ────────────────────────────────────────────────────────────────────────────
+   5. MARQUEE / TICKER ANIMATIONS
+   Two marquee types:
+   (a) .marquee-container  — text ticker (client logos, taglines) — dark strip
+   (b) .card-marquee-*     — scrolling card carousel on index.html
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* (a) Text Ticker — dark background strip */
 .marquee-container {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
     width: 100%;
-    background-color: #0f172a;
-    color: #cbd5e1;
+    background-color: var(--bg-darker);  /* #0f172a — deep dark strip */
+    color: var(--text-on-dark-muted);    /* #94a3b8 — muted light text */
     padding: 16px 0;
     display: flex;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
 }
 
 .marquee-content {
@@ -70,12 +191,7 @@ body {
     animation: scroll 40s linear infinite;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Card Marquee Animation */
+/* (b) Card Carousel — used in index.html services preview section */
 .card-marquee-container {
     overflow: hidden;
     white-space: nowrap;
@@ -89,15 +205,328 @@ body {
     animation: scroll 40s linear infinite;
 }
 
+/* Pause on hover — lets user read the card */
 .card-marquee-container:hover .card-marquee-content {
     animation-play-state: paused;
 }
 
-/* Modal Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+/* Shared keyframe — used by both marquee types */
+@keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   6. BOOKING FORM — index.html #book section
+   Custom styled checkboxes for service selection.
+   Inputs and labels styled below, rest handled by Tailwind classes in HTML.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Custom Checkbox — service selector checkboxes in the booking form */
+.custom-checkbox input:checked + div {
+    background-color: var(--brand-blue);   /* Checked fill = brand blue           */
+    border-color:     var(--brand-blue);   /* Border matches fill                 */
+}
+
+.custom-checkbox input:checked + div svg {
+    display: block;                        /* Show checkmark SVG when checked      */
+}
+
+/* Form section background — dark gradient card on index.html */
+/* Controlled via Tailwind class: bg-gradient-to-br from-[#0f172a] to-[#1e293b] in HTML */
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   7. CARDS
+   (a) .glass-card  — dark glassmorphism cards (used on dark sections)
+   (b) Service cards on explorer.html are styled via Tailwind + JS
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Glass card — used in dark background sections */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Light service card base — explorer.html dynamic cards (also set in services.js) */
+/* bg: var(--bg-card-white), border: var(--border-light), shadow: var(--shadow-card) */
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   8. SIDEBAR — explorer.html left category navigation
+   Background: white, border: var(--border-light)
+   Active state controlled by .sidebar-link.active below.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Active sidebar link — red gradient pill */
+.sidebar-link.active {
+    background: linear-gradient(135deg,
+        var(--brand-red)       0%,   /* #f43f5e */
+        var(--brand-red-hover) 100%  /* #e11d48 */
+    );
+    color: white;
+    box-shadow: 0 10px 20px -5px rgba(244, 63, 94, 0.4);   /* Red glow under active item */
+}
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   9. CART / SELECTION PANEL — explorer.html right sidebar
+   "Your Selection" panel.
+   — Hidden by default (class="hidden" added via HTML)
+   — JS removes "hidden" when first item is added to bucket
+   — Controlled by: js/services.js → updateCartUI()
+   ──────────────────────────────────────────────────────────────────────────── */
+/* No extra CSS needed — all styling via Tailwind classes in explorer.html */
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   10. MODAL — Pop-up overlays (e.g., corporate sub-services modal)
+   Fade-in + scale animation for smooth appearance.
+   ──────────────────────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .modal-animate {
     animation: fadeIn 0.3s ease-out forwards;
+}
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   11. FOOTER — All pages
+   Deep dark background (var(--bg-dark)) with muted text.
+   Background: #1e293b (bg-slate-900 in Tailwind)
+   Text: #94a3b8 (text-slate-400 in Tailwind)
+   Border-top: #1e293b / slate-800
+   ──────────────────────────────────────────────────────────────────────────── */
+/* Footer styling is fully handled by Tailwind classes in HTML.
+   To change footer colors, update: bg-slate-900 → bg-[yourcolor] in HTML */
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   12. ANIMATIONS & UTILITIES
+   Reusable animation utilities used across all pages.
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Fade-in slide up — used on service cards in explorer.html */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Smooth hover lift — apply to any card for hover elevation */
+.hover-lift {
+    transition: var(--transition-base);
+}
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Gradient text utility — EventSetup brand logo text */
+.gradient-text {
+    background: linear-gradient(135deg, var(--brand-blue), var(--brand-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Red glow button pulse — used on WhatsApp/CTA buttons */
+.btn-glow-red:hover {
+    box-shadow: var(--shadow-red-glow);
+}
+
+/* WhatsApp brand button */
+.btn-whatsapp {
+    background-color: var(--brand-whatsapp);  /* #25D366 */
+    color: white;
+    transition: var(--transition-base);
+}
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    box-shadow: 0 0 16px rgba(37, 211, 102, 0.4);
+}
+
+
+/* ────────────────────────────────────────────────────────────────────────────
+   13. PAGE HERO BACKGROUNDS — Complete list for every page
+   ─────────────────────────────────────────────────────────────────────────────
+   EVERY page hero is defined here. To change a hero image, just update the
+   url('...') for that page's class below. No touching HTML files needed.
+
+   Page class → Body class used → Image source
+   ─────────────────────────────────────────────
+   about.html                   → body.page-about
+   gallery.html                 → body.page-gallery
+   services/corporate-events    → body.page-corp-events
+   services/weddings            → body.page-weddings
+   services/tent-decor          → body.page-tents
+   services/party-games         → body.page-party-games
+   services/view.html (dynamic) → body.page-view   (image set by JS)
+   corp/annual-day              → body.page-annual-day
+   corp/team-building           → body.page-team-building
+   corp/product-launches        → body.page-product-launches
+   corp/reward-recognition      → body.page-reward-recognition
+   corp/conferences-seminars    → body.page-conferences
+   corp/town-hall-meetings      → body.page-town-hall
+   corp/trade-shows             → body.page-trade-shows
+   corp/festive-parties         → body.page-festive-parties
+   corp/executive-dinners       → body.page-exec-dinners
+   corp/workshops-training      → body.page-workshops
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* Shared hero base */
+.page-hero {
+    background-size: cover;
+    background-position: center;
+}
+
+/* ── Main Sub-Pages ────────────────────────────────────────────────────────── */
+
+/* about.html */
+body.page-about .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* gallery.html */
+body.page-gallery .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+}
+
+/* services/corporate-events.html */
+body.page-corp-events .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* services/weddings.html */
+body.page-weddings .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(244,63,94,0.40)),
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');
+}
+
+/* services/tent-decor.html */
+body.page-tents .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* services/party-games.html */
+body.page-party-games .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* ── Corporate Sub-Pages ───────────────────────────────────────────────────── */
+
+/* annual-day-celebrations.html */
+body.page-annual-day .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* team-building-offsites.html */
+body.page-team-building .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* product-launches.html */
+body.page-product-launches .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* reward-recognition.html */
+body.page-reward-recognition .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* conferences-seminars.html */
+body.page-conferences .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* town-hall-meetings.html */
+body.page-town-hall .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* trade-shows-exhibitions.html */
+body.page-trade-shows .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* festive-corporate-parties.html */
+body.page-festive-parties .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* executive-vip-dinners.html */
+body.page-exec-dinners .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* workshops-training.html */
+body.page-workshops .page-hero {
+    background-image:
+        linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,58,138,0.80)),
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop');
+}
+
+/* services/view.html — JS sets backgroundImage dynamically on #view-hero */
+body.page-view .page-hero {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+body.page-view .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(15,23,42,0.95), rgba(30,41,59,0.70));
 }

@@ -1,95 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200">
-    <title>Service Details | EventSetup</title>
+    <title>Service Details | EventSetup Pvt Ltd</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-blue': '#1e3a8a',
+                        'brand-red': '#f43f5e',
+                        'brand-red-hover': '#e11d48',
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/services.js"></script>
     <script src="../js/engine.js"></script>
-    <style>
-        .page-hero {
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.7));
-        }
-    </style>
 </head>
-<body class="bg-[#1e293b] text-blue-100 min-h-screen">
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-nav py-5">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <a href="../index.html" class="text-2xl font-bold biz-name bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">EventSetup</a>
-            <div class="flex space-x-8 items-center font-medium">
-                <a href="../index.html" class="hover:text-brand-red transition-all">Home</a>
-                <a href="explorer.html" class="hover:text-brand-red transition-all">Services</a>
-                <a href="../gallery.html" class="hover:text-brand-red transition-all">Gallery</a>
-                <a href="../index.html#book" class="bg-brand-red px-6 py-2 rounded-full text-white">Book Now</a>
+<body class="page-view font-sans antialiased bg-white text-slate-800 min-h-screen">
+
+    <!-- Navbar — dark, same as explorer.html -->
+    <nav class="fixed w-full z-50 bg-[#1e293b]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red">
+                EventSetup
+            </a>
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="../index.html" class="text-blue-100 hover:text-brand-red transition-colors">Home</a>
+                <a href="../about.html" class="text-blue-100 hover:text-brand-red transition-colors">About</a>
+                <a href="explorer.html" class="text-brand-red font-semibold transition-colors">Services</a>
+                <a href="../gallery.html" class="text-blue-100 hover:text-brand-red transition-colors">Gallery</a>
+                <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full transition-all duration-300">Book Now</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0f172a] absolute w-full left-0 top-full border-t border-white/5 shadow-xl">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="../index.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">Home</a>
+                <a href="../about.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">About</a>
+                <a href="explorer.html" class="block px-3 py-3 text-brand-red hover:bg-white/5 rounded-lg font-medium">Services</a>
+                <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">Gallery</a>
+                <a href="../index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover">Book Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Hero -->
-    <section id="view-hero" class="relative pt-48 pb-32 flex items-center justify-center page-hero px-4">
+    <!-- Hero — dynamic image set by JS, dark overlay via CSS -->
+    <section id="view-hero" class="relative pt-48 pb-32 flex items-center justify-center page-hero px-4 min-h-[60vh]">
         <div class="max-w-4xl mx-auto z-10 relative text-center">
-            <nav class="flex justify-center text-xs text-brand-red uppercase tracking-widest font-bold mb-8">
-                <a href="explorer.html" class="hover:underline">Services</a> <span class="mx-3 text-white/20">/</span> <span id="view-cat">Category</span>
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center text-xs text-brand-red uppercase tracking-widest font-bold mb-6">
+                <a href="explorer.html" class="hover:underline text-white/70 hover:text-white">Services</a>
+                <span class="mx-3 text-white/30">/</span>
+                <span id="view-cat" class="text-brand-red">Category</span>
             </nav>
-            <h1 id="view-name" class="text-6xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl">Service Title</h1>
-            <p id="view-sub" class="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto font-light leading-relaxed">
-                Service sub-description goes here.
+            <h1 id="view-name" class="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow-2xl leading-tight">
+                Service Title
+            </h1>
+            <p id="view-sub" class="text-lg md:text-xl text-white/75 max-w-2xl mx-auto font-light leading-relaxed">
+                Service description goes here.
             </p>
         </div>
     </section>
 
-    <!-- Detail Content Section -->
-    <section class="py-32 relative overflow-hidden">
+    <!-- Detail Content — light white background, synced with main site -->
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8">
-                    <div>
-                        <h2 id="view-side-title" class="text-4xl md:text-5xl font-black text-white mb-6">Celebrate Excellence</h2>
-                        <div class="w-20 h-2 bg-gradient-to-r from-brand-blue to-brand-red rounded-full"></div>
-                    </div>
-                    
-                    <p id="view-desc" class="text-xl text-blue-100/60 leading-relaxed">
-                        Full detailed description of the service.
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Text Content -->
+                <div class="space-y-6">
+                    <!-- Small label -->
+                    <p class="text-xs font-bold text-brand-red uppercase tracking-widest">Service Details</p>
+
+                    <h2 id="view-side-title" class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                        What We Offer
+                    </h2>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-brand-blue to-brand-red rounded-full"></div>
+
+                    <p id="view-desc" class="text-slate-600 text-lg leading-relaxed">
+                        Professional end-to-end management for your events.
                     </p>
 
-                    <ul id="view-bullets" class="space-y-5">
-                        <!-- Bullets injected here -->
+                    <!-- Feature Bullets -->
+                    <ul id="view-bullets" class="space-y-4 pt-2">
+                        <!-- Injected by JS -->
                     </ul>
 
-                    <div class="pt-10">
-                        <button id="view-book-btn" class="inline-block px-10 py-5 rounded-2xl bg-brand-red text-white font-black text-lg hover:shadow-[0_0_30px_rgba(244,63,94,0.4)] transition-all transform hover:-translate-y-1">
-                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Finalize & Book Now
+                    <!-- Price tag -->
+                    <div class="flex items-center space-x-4 pt-4 border-t border-gray-100">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">Starts from</p>
+                            <p id="view-price" class="text-3xl font-black text-brand-red">—</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="pt-4">
+                        <button id="view-book-btn"
+                            class="inline-flex items-center px-10 py-4 rounded-2xl bg-brand-red text-white font-bold text-base hover:bg-brand-red-hover hover:shadow-[0_0_25px_rgba(244,63,94,0.35)] transition-all duration-300 transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp mr-3 text-2xl"></i> Enquire on WhatsApp
                         </button>
+                        <a href="explorer.html"
+                            class="inline-flex items-center ml-4 px-6 py-4 rounded-2xl border border-gray-200 text-slate-600 font-medium text-base hover:border-brand-red hover:text-brand-red transition-all duration-300">
+                            <i class="fas fa-arrow-left mr-2 text-sm"></i> Back to Services
+                        </a>
                     </div>
                 </div>
 
+                <!-- Right: Image -->
                 <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-red/20 to-brand-blue/20 blur-2xl rounded-[3rem]"></div>
-                    <img id="view-side-img" src="" alt="Service Detail" class="rounded-[2.5rem] shadow-2xl relative z-10 border border-white/10 w-full object-cover aspect-[4/3]">
+                    <div class="absolute -inset-4 bg-gradient-to-br from-brand-blue/10 to-brand-red/10 blur-2xl rounded-[3rem]"></div>
+                    <img id="view-side-img" src="" alt="Service Detail"
+                        class="rounded-3xl shadow-xl relative z-10 w-full object-cover aspect-[4/3] border border-gray-100">
+                    <!-- Location badge -->
+                    <div id="view-location-badge" class="absolute bottom-6 left-6 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg flex items-center space-x-2 border border-gray-100">
+                        <i class="fas fa-location-dot text-brand-red text-sm"></i>
+                        <span id="view-location-text" class="text-xs font-bold text-slate-700">Delhi NCR</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black/40 py-12 border-t border-white/5 text-center text-blue-100/30 text-sm tracking-widest uppercase">
-        <p class="biz-name">EVENTSETUP PRIVATE LIMITED</p>
-        <p class="mt-2 text-[10px]">&copy; 2026 ALL RIGHTS RESERVED.</p>
+    <!-- Why Choose Us strip — matches index.html style -->
+    <section class="py-16 bg-slate-50 border-t border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-black text-brand-red mb-1">500+</div>
+                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Events Done</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-brand-red mb-1">100%</div>
+                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Satisfaction</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-brand-red mb-1">10+</div>
+                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Years Experience</p>
+                </div>
+                <div>
+                    <div class="text-3xl font-black text-brand-red mb-1">24/7</div>
+                    <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer — dark, same as all other pages -->
+    <footer class="bg-slate-900 text-gray-400 py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs tracking-widest">
+            <a href="../index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red mb-4 inline-block">EventSetup</a>
+            <p class="mt-2">© 2026 EVENTSETUP PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="../index.html" class="hover:text-brand-red transition-colors">Home</a>
+                <a href="explorer.html" class="hover:text-brand-red transition-colors">Services</a>
+                <a href="../gallery.html" class="hover:text-brand-red transition-colors">Gallery</a>
+                <a href="../index.html#book" class="hover:text-brand-red transition-colors">Book Now</a>
+            </div>
+        </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const serviceId = params.get('id');
@@ -101,35 +201,48 @@
             }
 
             const categoryData = servicesData[cat];
+            if (!categoryData) { window.location.href = 'explorer.html'; return; }
+
             const service = categoryData.items.find(s => s.id === serviceId);
 
             if (service) {
-                // Hero Data
+                // Page Title
+                document.title = `${service.name} | EventSetup Pvt Ltd`;
+
+                // Hero
                 document.getElementById('view-name').textContent = service.name;
                 document.getElementById('view-sub').textContent = service.description;
-                document.getElementById('view-hero').style.backgroundImage = `url('${service.image || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000'}')`;
-                document.getElementById('view-cat').textContent = cat;
+                document.getElementById('view-cat').textContent = categoryData.title;
+                document.getElementById('view-hero').style.backgroundImage =
+                    `url('${service.image || 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000'}')`;
 
-                // Detail Section Data
-                document.getElementById('view-side-title').textContent = service.sideTitle || "What We Offer";
-                document.getElementById('view-desc').textContent = service.longContent || "Professional end-to-end management for your events.";
+                // Content section
+                document.getElementById('view-side-title').textContent = service.sideTitle || service.name;
+                document.getElementById('view-desc').textContent = service.longContent || service.description;
                 document.getElementById('view-side-img').src = service.sideImage || service.image;
+                document.getElementById('view-price').textContent = service.price || '₹On Request';
 
-                // Bullets
-                const bullets = service.bullets ? service.bullets.split(',') : ["Premium Setups", "Expert Coordination", "High-quality Standards"];
+                // Location badge from localStorage
+                const loc = localStorage.getItem('userLocation') || 'Delhi NCR';
+                document.getElementById('view-location-text').textContent = loc;
+
+                // Feature Bullets
+                const bullets = service.bullets
+                    ? service.bullets.split(',')
+                    : ['Premium Setup & Execution', 'Expert Event Coordinators', 'High-quality Equipment', 'On-time Delivery'];
                 const bulletList = document.getElementById('view-bullets');
                 bulletList.innerHTML = '';
                 bullets.forEach(b => {
                     const li = document.createElement('li');
-                    li.className = 'flex items-start text-lg text-blue-100/80';
-                    li.innerHTML = `<i class="fas fa-check-circle text-brand-red mt-1.5 mr-4"></i><span>${b.trim()}</span>`;
+                    li.className = 'flex items-start text-slate-700';
+                    li.innerHTML = `<i class="fas fa-check-circle text-brand-red mt-1 mr-3 shrink-0"></i><span>${b.trim()}</span>`;
                     bulletList.appendChild(li);
                 });
 
-                // WhatsApp
+                // WhatsApp Book Button
                 document.getElementById('view-book-btn').onclick = () => {
-                    const bizPhone = (JSON.parse(localStorage.getItem('siteConfig'))?.business?.whatsapp) || "919650624535";
-                    const msg = `Hello! I'm interested in the *${service.name}* service. Please provide more details.`;
+                    const bizPhone = (JSON.parse(localStorage.getItem('siteConfig') || '{}')?.business?.whatsapp) || '919650624535';
+                    const msg = `Hello EventSetup Team!\n\nI'm interested in the *${service.name}* service.\n*Price:* ${service.price || 'To be discussed'}\n*Location:* ${loc}\n\nPlease provide more details and availability.`;
                     window.open(`https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}`, '_blank');
                 };
             }
