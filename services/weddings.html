@@ -24,8 +24,12 @@
         }
     </script>
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Dynamic Engine -->
+    <script src="../js/services.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/engine.js"></script>
 </head>
-<body class="page-weddings font-sans antialiased text-gray-800 bg-gray-50">
+<body class="page-weddings font-sans antialiased text-blue-100">
 
     <!-- Sticky Navbar -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-nav text-white py-5">
@@ -41,11 +45,16 @@
                     <a href="../about.html" class="hover:text-brand-red transition-colors duration-200 font-medium">About</a>
                     <a href="../index.html#services" class="text-brand-red transition-colors duration-200 font-medium">Services</a>
                     <a href="../gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    
+                    <a href="../cart.html" class="relative text-white hover:text-brand-red transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-badge hidden absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center font-bold border-2 border-brand-blue">0</span>
+                    </a>
                     <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
                         <i class="fas fa-map-marker-alt text-brand-red"></i>
                         <span class="location-text">Select Location</span>
                     </button>
-                    <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">Book Now</a>
+                    <a href="../index.html#book" class="book-now-btn bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">Book Now</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
@@ -62,6 +71,10 @@
                 <a href="../about.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
                 <a href="../index.html#services" class="block px-3 py-3 text-brand-red hover:bg-blue-800 rounded-lg font-medium transition-colors">Services</a>
                 <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <a href="../cart.html" class="flex items-center justify-between px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">
+                    <span>Your Selection</span>
+                    <span class="cart-badge hidden bg-brand-red text-white text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+                </a>
                 <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
                     <i class="fas fa-map-marker-alt text-brand-red"></i>
                     <span class="location-text">Select Location</span>
@@ -90,50 +103,54 @@
                 <div class="w-20 h-1.5 bg-gradient-to-r from-brand-blue to-brand-red mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-                <!-- Sub Service 1 -->
-                <div class="flex items-start space-x-6">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0">
-                        <i class="fas fa-campground text-2xl text-brand-blue"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <a href="view.html?id=wed-1&cat=weddings" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Mandap" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-heart absolute bottom-4 left-4 text-3xl text-white drop-shadow"></i>
                     </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Luxury Tent Decor</h4>
-                        <p class="text-gray-600 leading-relaxed">Transform any open space into a palace with our premium, imported waterproof tents, complete with royal draping and chandeliers.</p>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">Luxury Stage & Mandap</h4>
+                        <p class="text-gray-600 mb-6 flex-1">Grand floral mandap, stage backdrop, and ambient lighting for the perfect wedding.</p>
+                        <span class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                            Explore Service <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
                     </div>
-                </div>
+                </a>
 
-                <!-- Sub Service 2 -->
-                <div class="flex items-start space-x-6">
-                    <div class="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center shrink-0">
-                        <i class="fas fa-leaf text-2xl text-brand-red"></i>
+                <!-- Card 2 -->
+                <a href="view.html?id=wed-2&cat=weddings" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1571167366136-b57e07161741?q=80&w=600&auto=format&fit=crop" alt="Haldi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-leaf absolute bottom-4 left-4 text-3xl text-white drop-shadow"></i>
                     </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Exquisite Floral Arrangements</h4>
-                        <p class="text-gray-600 leading-relaxed">Fresh, imported flowers arranged by expert florists to create stunning centerpieces, photo booths, and breathtaking Mandap designs.</p>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-red transition-colors">Haldi & Mehendi Setup</h4>
+                        <p class="text-gray-600 mb-6 flex-1">Vibrant floral floor seating, props, and thematic decor for pre-wedding functions.</p>
+                        <span class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                            Explore Service <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
                     </div>
-                </div>
+                </a>
 
-                <!-- Sub Service 3 -->
-                <div class="flex items-start space-x-6">
-                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center shrink-0">
-                        <i class="fas fa-magic text-2xl text-brand-blue"></i>
+                <!-- Card 3 -->
+                <a href="view.html?id=wed-4&cat=weddings" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=600&auto=format&fit=crop" alt="Reception" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <i class="fas fa-utensils absolute bottom-4 left-4 text-3xl text-white drop-shadow"></i>
                     </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Ambient & Mood Lighting</h4>
-                        <p class="text-gray-600 leading-relaxed">Fairy lights, crystal chandeliers, and dynamic color-changing LED wash lights to set the perfect romantic ambiance for evening events.</p>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-blue transition-colors">Full Wedding Reception</h4>
+                        <p class="text-gray-600 mb-6 flex-1">Complete décor package — stage, seating, floral, and entry setup.</p>
+                        <span class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
+                            Explore Service <i class="fas fa-arrow-right ml-2"></i>
+                        </span>
                     </div>
-                </div>
-
-                <!-- Sub Service 4 -->
-                <div class="flex items-start space-x-6">
-                    <div class="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center shrink-0">
-                        <i class="fas fa-utensils text-2xl text-brand-red"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-3">Catering Setup & Dining</h4>
-                        <p class="text-gray-600 leading-relaxed">Elegant dining area setups including luxury buffet counters, premium cutlery styling, and round-table seating with customized linen.</p>
-                    </div>
-                </div>
+                </a>
             </div>
             
             <div class="mt-20 text-center">

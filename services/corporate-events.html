@@ -24,8 +24,11 @@
         }
     </script>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/services.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/engine.js"></script>
 </head>
-<body class="page-corp-events font-sans antialiased text-gray-800 bg-gray-50">
+<body class="page-corporate font-sans antialiased text-blue-100">
 
     <!-- Sticky Navbar -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass-nav text-white py-5">
@@ -41,11 +44,16 @@
                     <a href="../about.html" class="hover:text-brand-red transition-colors duration-200 font-medium">About</a>
                     <a href="../index.html#services" class="text-brand-red transition-colors duration-200 font-medium">Services</a>
                     <a href="../gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    
+                    <a href="../cart.html" class="relative text-white hover:text-brand-red transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-badge hidden absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center font-bold border-2 border-brand-blue">0</span>
+                    </a>
                     <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
                         <i class="fas fa-map-marker-alt text-brand-red"></i>
                         <span class="location-text">Select Location</span>
                     </button>
-                    <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">Book Now</a>
+                    <a href="../index.html#book" class="book-now-btn bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5">Book Now</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
@@ -62,6 +70,10 @@
                 <a href="../about.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
                 <a href="../index.html#services" class="block px-3 py-3 text-brand-red hover:bg-blue-800 rounded-lg font-medium transition-colors">Services</a>
                 <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <a href="../cart.html" class="flex items-center justify-between px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">
+                    <span>Your Selection</span>
+                    <span class="cart-badge hidden bg-brand-red text-white text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+                </a>
                 <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
                     <i class="fas fa-map-marker-alt text-brand-red"></i>
                     <span class="location-text">Select Location</span>
@@ -92,7 +104,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <a href="corporate-events/annual-day-celebrations.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-1&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop" alt="Annual Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -108,7 +120,7 @@
                 </a>
 
                 <!-- Card 2 -->
-                <a href="corporate-events/team-building-offsites.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-2&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop" alt="Team Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -124,7 +136,7 @@
                 </a>
 
                 <!-- Card 3 -->
-                <a href="corporate-events/product-launches.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-3&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600&auto=format&fit=crop" alt="Product Launches" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -140,7 +152,7 @@
                 </a>
 
                 <!-- Card 4 -->
-                <a href="corporate-events/reward-recognition.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-10&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop" alt="R&R" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -156,7 +168,7 @@
                 </a>
 
                 <!-- Card 5 -->
-                <a href="corporate-events/conferences-seminars.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-4&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop" alt="Conferences" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -172,7 +184,7 @@
                 </a>
 
                 <!-- Card 6 -->
-                <a href="corporate-events/town-hall-meetings.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-5&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop" alt="Town Hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -188,7 +200,7 @@
                 </a>
 
                 <!-- Card 7 -->
-                <a href="corporate-events/trade-shows-exhibitions.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-6&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop" alt="Trade Shows" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -204,7 +216,7 @@
                 </a>
 
                 <!-- Card 8 -->
-                <a href="corporate-events/festive-corporate-parties.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-7&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop" alt="Festive Parties" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -220,7 +232,7 @@
                 </a>
 
                 <!-- Card 9 -->
-                <a href="corporate-events/executive-vip-dinners.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-8&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop" alt="VIP Dinners" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -236,7 +248,7 @@
                 </a>
 
                 <!-- Card 10 -->
-                <a href="corporate-events/workshops-training.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
+                <a href="view.html?id=corp-9&cat=corporate" class="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col transform hover:-translate-y-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop" alt="Workshops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

@@ -26,6 +26,7 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/services.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/engine.js"></script>
 </head>
 <body class="page-view font-sans antialiased bg-white text-slate-800 min-h-screen">
@@ -41,7 +42,15 @@
                 <a href="../about.html" class="text-blue-100 hover:text-brand-red transition-colors">About</a>
                 <a href="explorer.html" class="text-brand-red font-semibold transition-colors">Services</a>
                 <a href="../gallery.html" class="text-blue-100 hover:text-brand-red transition-colors">Gallery</a>
-                <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full transition-all duration-300">Book Now</a>
+                <a href="../cart.html" class="relative text-blue-100 hover:text-brand-red transition-colors flex items-center">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="cart-badge hidden absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center font-bold border-2 border-slate-900">0</span>
+                </a>
+                <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-brand-red"></i>
+                    <span class="location-text">Select Location</span>
+                </button>
+                <a href="../index.html#book" class="book-now-btn bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full transition-all duration-300">Book Now</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none">
@@ -56,6 +65,10 @@
                 <a href="../about.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">About</a>
                 <a href="explorer.html" class="block px-3 py-3 text-brand-red hover:bg-white/5 rounded-lg font-medium">Services</a>
                 <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">Gallery</a>
+                <a href="../cart.html" class="flex items-center justify-between px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium">
+                    <span>Your Selection</span>
+                    <span class="cart-badge hidden bg-brand-red text-white text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+                </a>
                 <a href="../index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover">Book Now</a>
             </div>
         </div>
@@ -69,6 +82,7 @@
                 <a href="explorer.html" class="hover:underline text-white/70 hover:text-white">Services</a>
                 <span class="mx-3 text-white/30">/</span>
                 <span id="view-cat" class="text-brand-red">Category</span>
+                <span id="view-breadcrumb-location" class="text-white/50 ml-1"></span>
             </nav>
             <h1 id="view-name" class="text-5xl md:text-6xl font-black text-white mb-6 drop-shadow-2xl leading-tight">
                 Service Title
@@ -139,8 +153,28 @@
         </div>
     </section>
 
+    <!-- Related Services Slider -->
+    <section class="py-16 bg-slate-50 border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 flex justify-between items-end">
+            <div>
+                <h3 class="text-3xl font-extrabold text-slate-900">Explore More Services</h3>
+                <div class="w-16 h-1.5 bg-brand-red mt-3 rounded-full"></div>
+            </div>
+            <div class="hidden md:flex space-x-2">
+                <button id="slider-prev" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-brand-blue flex items-center justify-center hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors shadow-sm"><i class="fas fa-chevron-left"></i></button>
+                <button id="slider-next" class="w-10 h-10 rounded-full bg-white border border-gray-200 text-brand-blue flex items-center justify-center hover:bg-brand-red hover:text-white hover:border-brand-red transition-colors shadow-sm"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="related-services-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-2 scroll-smooth hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Cards will be injected via JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Us strip — matches index.html style -->
-    <section class="py-16 bg-slate-50 border-t border-b border-gray-100">
+    <section class="py-16 bg-white border-t border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
@@ -245,8 +279,133 @@
                     const msg = `Hello EventSetup Team!\n\nI'm interested in the *${service.name}* service.\n*Price:* ${service.price || 'To be discussed'}\n*Location:* ${loc}\n\nPlease provide more details and availability.`;
                     window.open(`https://wa.me/${bizPhone}?text=${encodeURIComponent(msg)}`, '_blank');
                 };
+
+                // Generate Related Services Slider
+                const sliderContainer = document.getElementById('related-services-container');
+                if (sliderContainer && window.servicesData) {
+                    let allServices = [];
+                    // Gather all services except the current one
+                    Object.values(window.servicesData).forEach(catObj => {
+                        catObj.items.forEach(item => {
+                            if (item.id !== serviceId) allServices.push({ ...item, categoryTitle: catObj.title });
+                        });
+                    });
+
+                    // Shuffle array (Fisher-Yates)
+                    for (let i = allServices.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [allServices[i], allServices[j]] = [allServices[j], allServices[i]];
+                    }
+
+                    // Pick top 8 random services
+                    const related = allServices.slice(0, 8);
+                    
+                    sliderContainer.innerHTML = '';
+                    related.forEach(item => {
+                        // We use a simplified version of the explorer card
+                        const card = document.createElement('div');
+                        card.className = 'min-w-[280px] md:min-w-[320px] max-w-[320px] snap-start bg-white border border-gray-100 shadow-sm rounded-3xl p-5 hover:shadow-lg hover:border-brand-red/20 transition-all group flex flex-col shrink-0';
+                        card.innerHTML = `
+                            <div class="relative h-40 mb-4 overflow-hidden rounded-2xl">
+                                <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-[9px] font-bold text-slate-800 px-2 py-1 rounded-full uppercase tracking-wider">
+                                    ${item.categoryTitle}
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center text-[9px] text-brand-red font-bold mb-2 uppercase tracking-wider">
+                                    <i class="fas fa-location-dot mr-1"></i> Available in ${loc}
+                                </div>
+                                <h4 class="font-bold text-slate-800 mb-1 text-base line-clamp-1">${item.name}</h4>
+                            </div>
+                            <button onclick="event.preventDefault(); toggleService('${item.id}', this)" class="w-full py-2.5 my-3 rounded-xl text-xs font-bold transition-all bg-brand-blue/5 text-brand-blue hover:bg-brand-blue hover:text-white border border-brand-blue/10 flex items-center justify-center related-add-btn">
+                                <i class="fas fa-cart-plus mr-2"></i> Add to Bucket
+                            </button>
+                            <div class="space-y-3 mt-auto border-t border-gray-50 pt-3">
+                                <div class="flex justify-between items-center px-1">
+                                    <span class="text-[9px] text-slate-400 uppercase tracking-widest font-bold">Starts from</span>
+                                    <span class="text-sm font-black text-brand-red">${item.price}</span>
+                                </div>
+                                <a href="${item.url}" class="block w-full py-2.5 text-center text-xs font-bold text-white bg-brand-red hover:bg-brand-red-hover transition-all rounded-xl shadow-md shadow-brand-red/20">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        `;
+                        sliderContainer.appendChild(card);
+                    });
+
+                    // Initial sync of button states
+                    syncRelatedButtons();
+
+                    // Slider Controls & Auto Slide Logic
+                    const prevBtn = document.getElementById('slider-prev');
+                    const nextBtn = document.getElementById('slider-next');
+                    const cardWidth = 340; // approximate width + gap
+
+                    let autoSlideInterval;
+                    const startAutoSlide = () => {
+                        autoSlideInterval = setInterval(() => {
+                            if (!sliderContainer) return;
+                            // Check if reached the end
+                            if (sliderContainer.scrollLeft + sliderContainer.clientWidth >= sliderContainer.scrollWidth - 10) {
+                                sliderContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                            } else {
+                                sliderContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                            }
+                        }, 3000); // Slides every 3 seconds
+                    };
+
+                    const stopAutoSlide = () => clearInterval(autoSlideInterval);
+
+                    // Start the auto slider
+                    startAutoSlide();
+
+                    // Pause sliding when user interacts
+                    sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+                    sliderContainer.addEventListener('mouseleave', startAutoSlide);
+                    sliderContainer.addEventListener('touchstart', stopAutoSlide, {passive: true});
+                    sliderContainer.addEventListener('touchend', startAutoSlide);
+
+                    if (prevBtn && nextBtn) {
+                        prevBtn.onclick = () => {
+                            sliderContainer.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+                            stopAutoSlide(); startAutoSlide(); // Reset timer on manual click
+                        };
+                        nextBtn.onclick = () => {
+                            sliderContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                            stopAutoSlide(); startAutoSlide(); // Reset timer on manual click
+                        };
+                    }
+                }
             }
         });
+
+        // Sync Add to Bucket buttons visually
+        function syncRelatedButtons() {
+            if (typeof selectedServices === 'undefined') return;
+            document.querySelectorAll('#related-services-container .related-add-btn').forEach(btn => {
+                const serviceId = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (selectedServices.has(serviceId)) {
+                    btn.className = 'w-full py-2.5 my-3 rounded-xl text-xs font-bold transition-all bg-brand-red text-white shadow-lg flex items-center justify-center related-add-btn';
+                    btn.innerHTML = '<i class="fas fa-check mr-2"></i> Added to Bucket';
+                } else {
+                    btn.className = 'w-full py-2.5 my-3 rounded-xl text-xs font-bold transition-all bg-brand-blue/5 text-brand-blue hover:bg-brand-blue hover:text-white border border-brand-blue/10 flex items-center justify-center related-add-btn';
+                    btn.innerHTML = '<i class="fas fa-cart-plus mr-2"></i> Add to Bucket';
+                }
+            });
+        }
+
+        // We override toggleService in this page to also sync buttons
+        if (typeof window.toggleService === 'function') {
+            const originalToggle = window.toggleService;
+            window.toggleService = function(serviceId, btn) {
+                originalToggle(serviceId, btn);
+                syncRelatedButtons();
+            };
+        }
     </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
 </body>
 </html>

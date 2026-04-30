@@ -24,6 +24,7 @@
         }
     </script>
     <script src="../js/services.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/engine.js"></script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -43,7 +44,16 @@
                     <a href="../about.html" class="hover:text-brand-red transition-colors duration-200 font-medium text-blue-100">About</a>
                     <a href="explorer.html" class="text-brand-red transition-colors duration-200 font-medium">Services</a>
                     <a href="../gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium text-blue-100">Gallery</a>
-                    <a href="../index.html#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full font-medium transition-all duration-300">Book Now</a>
+                    
+                    <a href="../cart.html" class="relative text-blue-100 hover:text-brand-red transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-badge hidden absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center font-bold border-2 border-slate-900">0</span>
+                    </a>
+                    <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
+                        <i class="fas fa-map-marker-alt text-brand-red"></i>
+                        <span class="location-text">Select Location</span>
+                    </button>
+                    <a href="../index.html#book" class="book-now-btn bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2 rounded-full font-medium transition-all duration-300">Book Now</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none transition-colors">
@@ -60,6 +70,10 @@
                 <a href="../about.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">About</a>
                 <a href="explorer.html" class="block px-3 py-3 text-brand-red hover:bg-white/5 rounded-lg font-medium transition-colors">Services</a>
                 <a href="../gallery.html" class="block px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">Gallery</a>
+                <a href="../cart.html" class="flex items-center justify-between px-3 py-3 text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
+                    <span>Your Selection</span>
+                    <span class="cart-badge hidden bg-brand-red text-white text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+                </a>
                 <a href="../index.html#book" class="block px-3 py-3 mt-4 text-center bg-brand-red text-white font-bold rounded-lg hover:bg-brand-red-hover transition-colors">Book Now</a>
             </div>
         </div>
@@ -67,6 +81,18 @@
 
     <!-- Explorer Layout -->
     <main class="flex-1 pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div class="bg-gradient-to-r from-brand-blue/5 to-brand-red/5 rounded-[2.5rem] p-8 md:p-12 border border-brand-blue/10 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-xs font-bold text-brand-red uppercase tracking-[0.3em] mb-4">Service Explorer</h2>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                        Premium Event Solutions <span class="dynamic-city-text text-brand-red"></span>
+                    </h1>
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row gap-8">
                 

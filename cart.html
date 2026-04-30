@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>Your Selection | EventSetup Pvt Ltd</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    colors: {
+                        'brand-blue': '#1e3a8a',
+                        'brand-red': '#f43f5e',
+                        'brand-red-hover': '#e11d48',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/services.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/engine.js"></script>
+</head>
+<body class="font-sans antialiased text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-[#1e293b]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red biz-name">
+                    EventSetup
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-blue-100 hover:text-brand-red transition-colors duration-200 font-medium">Home</a>
+                    <a href="about.html" class="text-blue-100 hover:text-brand-red transition-colors duration-200 font-medium">About</a>
+                    <a href="services/explorer.html" class="text-blue-100 hover:text-brand-red transition-colors duration-200 font-medium">Services</a>
+                    <a href="gallery.html" class="text-blue-100 hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    
+                    <!-- Cart Icon -->
+                    <a href="cart.html" class="relative text-brand-red transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-badge absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold border-2 border-[#1e293b]">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="pt-32 pb-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Your Selection</h1>
+            <p class="text-slate-500 mt-2 text-lg">Review your bucket and fast-track your event booking.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Left: Cart Items -->
+            <div class="flex-1">
+                <div id="cart-empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-dashed border-gray-300">
+                    <div class="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shopping-basket text-4xl text-slate-300"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Your bucket is empty</h3>
+                    <p class="text-slate-500 mb-8 max-w-md mx-auto">Explore our premium services and add them to your bucket to build your perfect event package.</p>
+                    <a href="services/explorer.html" class="inline-flex items-center px-8 py-3 bg-brand-blue text-white font-bold rounded-xl hover:bg-blue-800 transition-colors shadow-lg">
+                        Explore Services <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <div id="cart-items-container">
+                    <!-- Items rendered here by JS -->
+                </div>
+                
+                <a href="services/explorer.html" id="add-more-btn" class="inline-flex items-center mt-6 text-sm font-bold text-brand-blue hover:text-brand-red transition-colors">
+                    <i class="fas fa-plus mr-2"></i> Add more services
+                </a>
+            </div>
+
+            <!-- Right: Summary & Checkout -->
+            <div class="lg:w-[400px] shrink-0" id="checkout-sidebar">
+                <div class="bg-white rounded-3xl border border-gray-200 p-8 shadow-sm sticky top-28">
+                    <h3 class="text-xl font-black text-slate-900 mb-6">Order Summary</h3>
+                    
+                    <div class="flex justify-between items-center mb-6 pb-6 border-b border-gray-100">
+                        <span class="text-slate-500 font-medium">Estimated Starting Total</span>
+                        <span id="cart-total-price" class="text-2xl font-black text-brand-red">₹0</span>
+                    </div>
+
+                    <form id="cart-booking-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">Full Name</label>
+                            <input type="text" id="cart-name" required class="w-full px-4 py-3 bg-slate-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">WhatsApp Number</label>
+                            <input type="tel" id="cart-phone" required class="w-full px-4 py-3 bg-slate-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red transition-colors" placeholder="+91 98765 43210">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">Event Date</label>
+                            <input type="date" id="cart-date" required class="w-full px-4 py-3 bg-slate-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">Event Location</label>
+                            <input type="text" id="cart-loc" required class="w-full px-4 py-3 bg-slate-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red transition-colors" placeholder="e.g. Sector 29, Gurgaon">
+                        </div>
+
+                        <button type="submit" class="w-full mt-6 bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-green-500/30 flex items-center justify-center transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp mr-2 text-2xl"></i> Finalize & Book
+                        </button>
+                        <p class="text-[10px] text-center text-slate-400 mt-3 uppercase tracking-widest font-bold">Secure Booking via WhatsApp</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-gray-400 py-10 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs tracking-widest">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-brand-red mb-4 inline-block">EventSetup</a>
+            <p class="mt-2">© 2026 EVENTSETUP PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total-price');
+            const emptyState = document.getElementById('cart-empty-state');
+            const sidebar = document.getElementById('checkout-sidebar');
+            const addMoreBtn = document.getElementById('add-more-btn');
+            
+            const loc = localStorage.getItem('userLocation') || 'Delhi NCR';
+            const savedLocInput = document.getElementById('cart-loc');
+            if (savedLocInput && !savedLocInput.value) savedLocInput.value = loc;
+
+            // Wait briefly for servicesData to load if needed
+            setTimeout(() => {
+                if (!window.servicesData) return;
+                
+                if (window.selectedServices.size === 0) {
+                    emptyState.classList.remove('hidden');
+                    sidebar.classList.add('hidden');
+                    addMoreBtn.classList.add('hidden');
+                    return;
+                }
+
+                let total = 0;
+                let selectedItems = [];
+
+                Object.keys(window.servicesData).forEach(catId => {
+                    window.servicesData[catId].items.forEach(item => {
+                        if (window.selectedServices.has(item.id)) {
+                            selectedItems.push(item.name);
+                            // Extract numeric price
+                            const numPrice = parseInt(item.price.replace(/[^\d]/g, ''), 10);
+                            if (!isNaN(numPrice)) total += numPrice;
+
+                            const card = document.createElement('div');
+                            card.className = 'flex flex-col sm:flex-row bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-5 hover:shadow-md transition-all group';
+                            card.innerHTML = `
+                                <div class="w-full sm:w-48 h-40 sm:h-auto shrink-0 relative overflow-hidden">
+                                    <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider text-slate-800 shadow-sm">${window.servicesData[catId].title}</div>
+                                </div>
+                                <div class="p-5 sm:p-6 flex-1 flex flex-col justify-center">
+                                    <div class="text-[10px] text-brand-red font-bold uppercase tracking-wider mb-2"><i class="fas fa-location-dot mr-1"></i> Available in ${loc}</div>
+                                    <h4 class="text-xl font-bold text-slate-900 mb-1">${item.name}</h4>
+                                    <div class="text-sm font-black text-slate-700 mb-4">Starts from <span class="text-brand-red">${item.price}</span></div>
+                                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-50">
+                                        <button onclick="removeFromCart('${item.id}')" class="text-xs font-bold text-rose-500 hover:text-white hover:bg-rose-500 border border-rose-100 transition-colors bg-rose-50 px-4 py-2 rounded-xl flex items-center"><i class="fas fa-trash-alt mr-2"></i> Remove</button>
+                                        <a href="services/view.html?id=${item.id}&cat=${catId}" class="text-xs font-bold text-brand-blue hover:text-brand-red transition-colors flex items-center">Details <i class="fas fa-arrow-right ml-1"></i></a>
+                                    </div>
+                                </div>
+                            `;
+                            container.appendChild(card);
+                        }
+                    });
+                });
+
+                totalEl.textContent = '₹' + total.toLocaleString('en-IN');
+
+                // Checkout Form Submit
+                document.getElementById('cart-booking-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('cart-name').value.trim();
+                    const phone = document.getElementById('cart-phone').value.trim();
+                    let date = document.getElementById('cart-date').value;
+                    const location = document.getElementById('cart-loc').value;
+
+                    // Use global validation
+                    if (!window.validateForm({ name, phone })) return;
+
+                    if(date) {
+                        const dateObj = new Date(date);
+                        if(!isNaN(dateObj.getTime())) {
+                            date = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                        }
+                    }
+
+                    // Format services with bullet points and clear breaks
+                    const itemsList = selectedItems.map(i => `• ${i}`).join('\n');
+                    const message = `*NEW BOOKING ENQUIRY*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Date:* ${date}\n*Location:* ${location}\n\n*Services Selected:*\n${itemsList}\n\n*Estimated Total:* ₹${total.toLocaleString('en-IN')}\n\nPlease get in touch with me.`;
+                    
+                    const encodedMsg = encodeURIComponent(message);
+                    const bizPhone = "919650624535";
+                    window.open(`https://wa.me/${bizPhone}?text=${encodedMsg}`, '_blank');
+                });
+
+            }, 50); // slight delay to ensure servicesData is parsed
+        });
+
+        function removeFromCart(id) {
+            if(window.toggleService) {
+                window.toggleService(id, null);
+                // Reload to refresh the cart UI
+                window.location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

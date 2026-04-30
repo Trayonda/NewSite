@@ -5,32 +5,94 @@ var servicesData = {
         icon: 'fa-building',
         description: 'Professional setups and elegant seating for impactful business gatherings.',
         items: [
-            { id: 'corp-1', name: 'Annual Day Celebrations', price: '₹45,000', description: 'Comprehensive management for company milestones and grand celebrations.', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-1&cat=corporate' },
-            { id: 'corp-2', name: 'Team Building & Offsites', price: '₹25,000', description: 'Engaging offsite activities designed to foster collaboration and team spirit.', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-2&cat=corporate' },
-            { id: 'corp-3', name: 'Product Launches', price: '₹55,000', description: 'High-tech AV setups and creative stage designs for impactful product reveals.', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-3&cat=corporate' },
-            { id: 'corp-4', name: 'Conferences & Seminars', price: '₹35,000', description: 'Professional seating, PA systems, and registration desk setups for business meets.', image: 'https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-4&cat=corporate' },
-            { id: 'corp-5', name: 'Town Hall Meetings', price: '₹20,000', description: 'Elegant and professional internal meeting setups for leadership communication.', image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-5&cat=corporate' },
-            { id: 'corp-6', name: 'Trade Shows & Exhibitions', price: '₹60,000', description: 'Modular stalls, branding, and lighting for high-visibility trade show presence.', image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-6&cat=corporate' },
-            { id: 'corp-7', name: 'Festive Corporate Parties', price: '₹40,000', description: 'Themed decor and catering for Diwali, Christmas, and New Year corporate events.', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-7&cat=corporate' },
-            { id: 'corp-8', name: 'Executive & VIP Dinners', price: '₹30,000', description: 'Exquisite table decor and premium arrangements for high-profile business dinners.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-8&cat=corporate' },
-            { id: 'corp-9', name: 'Workshops & Training', price: '₹15,000', description: 'Functional and focused setups for skill-building and educational sessions.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-9&cat=corporate' },
-            { id: 'corp-10', name: 'Gala Award Ceremonies', price: '₹75,000', description: 'Luxury stage, red carpet entry, and premium lighting for prestigious awards.', image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-10&cat=corporate' }
+            { id: 'corp-1', name: 'Annual Day Celebrations',    price: '₹75,000',   description: 'Comprehensive management for company milestones and grand celebrations.', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-1&cat=corporate' },
+            { id: 'corp-2', name: 'Team Building & Offsites',   price: '₹25,000',   description: 'Engaging offsite activities designed to foster collaboration and team spirit.', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-2&cat=corporate' },
+            { id: 'corp-3', name: 'Product Launches',           price: '₹1,00,000', description: 'High-tech AV setups and creative stage designs for impactful product reveals.', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-3&cat=corporate' },
+            { id: 'corp-4', name: 'Conferences & Seminars',     price: '₹35,000',   description: 'Professional seating, PA systems, and registration desk setups for business meets.', image: 'https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-4&cat=corporate' },
+            { id: 'corp-5', name: 'Town Hall Meetings',         price: '₹20,000',   description: 'Elegant and professional internal meeting setups for leadership communication.', image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-5&cat=corporate' },
+            { id: 'corp-6', name: 'Trade Shows & Exhibitions',  price: '₹50,000',   description: 'Modular stalls, branding, and lighting for high-visibility trade show presence.', image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-6&cat=corporate' },
+            { id: 'corp-7', name: 'Festive Corporate Parties',  price: '₹45,000',   description: 'Themed decor and catering for Diwali, Christmas, and New Year corporate events.', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-7&cat=corporate' },
+            { id: 'corp-8', name: 'Executive & VIP Dinners',    price: '₹30,000',   description: 'Exquisite table decor and premium arrangements for high-profile business dinners.', image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-8&cat=corporate' },
+            { id: 'corp-9', name: 'Workshops & Training',       price: '₹15,000',   description: 'Functional and focused setups for skill-building and educational sessions.', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-9&cat=corporate' },
+            { id: 'corp-10', name: 'Gala Award Ceremonies',     price: '₹1,50,000', description: 'Red carpet entry, luxury stage, and premium lighting for prestigious awards nights.', image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=corp-10&cat=corporate' }
         ]
     },
     'weddings': {
-        title: 'Weddings',
+        title: 'Weddings & Celebrations',
         icon: 'fa-heart',
-        description: 'Exquisite decor and arrangements for your special day.',
+        description: 'Luxury décor and flawless arrangements for your most special day.',
         items: [
-            { id: 'wed-1', name: 'Luxury Stage Decor', price: '₹50,000', description: 'Grand floral and light arrangements.', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-1&cat=weddings' }
+            { id: 'wed-1', name: 'Luxury Stage & Mandap Decor', price: '₹80,000',   description: 'Grand floral mandap, stage backdrop, and ambient lighting for the perfect wedding.', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-1&cat=weddings' },
+            { id: 'wed-2', name: 'Haldi & Mehendi Setup',       price: '₹18,000',   description: 'Vibrant floral floor seating, props, and thematic decor for pre-wedding functions.', image: 'https://images.unsplash.com/photo-1571167366136-b57e07161741?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-2&cat=weddings' },
+            { id: 'wed-3', name: 'Sangeet Night',               price: '₹35,000',   description: 'Stage, DJ, dance floor, and festive lights for an unforgettable Sangeet celebration.', image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-3&cat=weddings' },
+            { id: 'wed-4', name: 'Full Wedding Reception',      price: '₹1,20,000', description: 'Complete décor package — stage, seating, floral, lighting, and entry setup for 200 guests.', image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-4&cat=weddings' },
+            { id: 'wed-5', name: 'Engagement Ceremony',         price: '₹25,000',   description: 'Elegant ring ceremony setup with floral backdrop, stage, and intimate décor.', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-5&cat=weddings' },
+            { id: 'wed-6', name: 'Bridal Entry & Aisle Setup',  price: '₹10,000',   description: 'Flower petal aisle, lighting, and grand entry arrangement for the bride.', image: 'https://images.unsplash.com/photo-1606216794079-73a0b9f8c4ac?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=wed-6&cat=weddings' }
+        ]
+    },
+    'tents': {
+        title: 'Tent & Decor',
+        icon: 'fa-campground',
+        description: 'Premium weather-proof tents and elegant decor for any outdoor event.',
+        items: [
+            { id: 'tent-1', name: 'Standard Shamiana Tent',     price: '₹8,000',    description: 'Classic 20×20 ft shamiana tent, per day — ideal for small gatherings and pujas.', image: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-1&cat=tents' },
+            { id: 'tent-2', name: 'Premium Banquet Tent',       price: '₹25,000',   description: 'Spacious 50×80 ft weather-proof tent with flooring — perfect for 200+ guests.', image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-2&cat=tents' },
+            { id: 'tent-3', name: 'Luxury German Tent',         price: '₹80,000',   description: 'High-end climate-controlled tent with glass walls, chandeliers, and premium flooring.', image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-3&cat=tents' },
+            { id: 'tent-4', name: 'Fairy Light Decoration',     price: '₹5,000',    description: 'Magical fairy light setups for indoor and outdoor events — per event basis.', image: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-4&cat=tents' },
+            { id: 'tent-5', name: 'Stage Construction',         price: '₹15,000',   description: 'Sturdy 12×8 ft carpeted stage with skirting — for all event types.', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-5&cat=tents' },
+            { id: 'tent-6', name: 'Balloon Decoration',         price: '₹3,500',    description: 'Balloon arches, columns, and ceiling setups for birthdays and corporate events.', image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=tent-6&cat=tents' }
+        ]
+    },
+    'games': {
+        title: 'Party Games',
+        icon: 'fa-gamepad',
+        description: 'Fun and engaging game installations for kids and adults at every event.',
+        items: [
+            { id: 'game-1', name: 'Jumping Castle (Kids)',      price: '₹4,000',    description: 'Colourful bouncy castle for kids — per day with safety attendant included.', image: 'https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-1&cat=games' },
+            { id: 'game-2', name: 'Laser Tag Arena',            price: '₹15,000',   description: '10-player laser tag setup with arena, vests, and 2-hour gameplay package.', image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-2&cat=games' },
+            { id: 'game-3', name: 'Carnival Games (5 Stalls)',  price: '₹12,000',   description: 'Ring toss, darts, balloon pop and more — full carnival with attendants.', image: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-3&cat=games' },
+            { id: 'game-4', name: 'Giant Outdoor Games',        price: '₹5,000',    description: 'Giant Jenga, Chess, Ludo and Snakes & Ladders — perfect for family events.', image: 'https://images.unsplash.com/photo-1611996575749-79a3a250f948?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-4&cat=games' },
+            { id: 'game-5', name: 'Mechanical Bull Riding',     price: '₹8,000',    description: 'Thrilling mechanical bull ride with trained operator — per half day.', image: 'https://images.unsplash.com/photo-1496337589254-7e19d01cec44?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-5&cat=games' },
+            { id: 'game-6', name: 'VR Gaming Station',          price: '₹10,000',   description: '2 VR headsets with immersive games — 2-hour package with dedicated operator.', image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-6&cat=games' },
+            { id: 'game-7', name: 'DJ + Dance Floor Setup',     price: '₹12,000',   description: 'Professional DJ with LED dance floor and 4-hour music package.', image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=600&auto=format&fit=crop', url: 'view.html?id=game-7&cat=games' }
         ]
     }
 };
 
+// --- Gallery Data ---
+// This serves as the single source of truth for the Experience Excellence section
+// type: 'image' or 'video'
+var galleryData = [
+    { type: 'image', src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800', title: 'Corporate Gala 2025' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800', title: 'Royal Wedding Mandap' },
+    { type: 'video', src: 'https://assets.mixkit.co/videos/preview/mixkit-celebration-at-a-wedding-party-39832-large.mp4', title: 'Wedding Highlights', poster: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800', title: 'Product Launch Setup' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800', title: 'Team Building Offsite' },
+    { type: 'video', src: 'https://assets.mixkit.co/videos/preview/mixkit-excited-people-at-a-concert-4552-large.mp4', title: 'Corporate Party Energy', poster: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800', title: 'German Hanger Setup' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=800', title: 'Luxury Tent Decor' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=800', title: 'Kids Party Games' },
+    { type: 'video', src: 'https://assets.mixkit.co/videos/preview/mixkit-hand-filming-a-wedding-couple-with-a-smartphone-39836-large.mp4', title: 'Behind the Scenes', poster: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=800', title: 'Conference Seating' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800', title: 'VIP Dinner Table' }
+];
+
+window.galleryData = galleryData;
+
+
+
 // Make it global for engine.js
 window.servicesData = servicesData;
 
-let selectedServices = new Set();
+// Load cart state from localStorage
+const savedCart = JSON.parse(localStorage.getItem('cart') || '[]');
+window.selectedServices = new Set(savedCart);
+
+// Function to save cart state globally
+window.saveCartState = function() {
+    localStorage.setItem('cart', JSON.stringify(Array.from(window.selectedServices)));
+    window.dispatchEvent(new CustomEvent('cartUpdated', { detail: window.selectedServices.size }));
+};
 
 // Define globally
 window.renderServices = function(category) {
@@ -58,7 +120,7 @@ window.renderServices = function(category) {
     const currentLocation = localStorage.getItem('userLocation') || 'Delhi NCR';
 
     categoryData.items.forEach(item => {
-        const isSelected = selectedServices.has(item.id);
+        const isSelected = window.selectedServices.has(item.id);
         const card = document.createElement('div');
         card.className = 'bg-white border border-gray-100 shadow-sm rounded-3xl p-6 hover:shadow-md hover:border-brand-red/20 transition-all group flex flex-col h-full animate-fade-in';
         card.innerHTML = `
@@ -90,13 +152,16 @@ window.renderServices = function(category) {
 };
 
 window.toggleService = function(serviceId, btn) {
-    if (selectedServices.has(serviceId)) {
-        selectedServices.delete(serviceId);
+    if (window.selectedServices.has(serviceId)) {
+        window.selectedServices.delete(serviceId);
     } else {
-        selectedServices.add(serviceId);
+        window.selectedServices.add(serviceId);
     }
     
-    // Refresh the current view
+    // Save to localStorage and fire events
+    window.saveCartState();
+    
+    // Refresh the current view if we are on explorer page
     const activeLink = document.querySelector('.sidebar-link.active');
     if (activeLink) renderServices(activeLink.dataset.category);
     
@@ -113,7 +178,7 @@ function updateCartUI() {
 
     Object.values(window.servicesData).forEach(cat => {
         cat.items.forEach(item => {
-            if (selectedServices.has(item.id)) {
+            if (window.selectedServices.has(item.id)) {
                 totalItems++;
                 const div = document.createElement('div');
                 div.className = 'flex items-center justify-between p-3 bg-slate-50 rounded-xl mb-2 border border-gray-100';

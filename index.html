@@ -66,11 +66,16 @@
                     <a href="about.html" class="hover:text-brand-red transition-colors duration-200 font-medium">About</a>
                     <a href="services/explorer.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Services</a>
                     <a href="gallery.html" class="hover:text-brand-red transition-colors duration-200 font-medium">Gallery</a>
+                    
+                    <a href="cart.html" class="relative text-white hover:text-brand-red transition-colors duration-200 flex items-center">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-badge hidden absolute -top-2 -right-3 bg-brand-red text-white text-[10px] w-5 h-5 rounded-full items-center justify-center font-bold border-2 border-brand-blue">0</span>
+                    </a>
                     <button class="location-btn flex items-center space-x-2 text-white hover:text-brand-red transition-colors duration-200 font-medium bg-white/10 px-4 py-2 rounded-full border border-white/20 text-sm cursor-pointer">
                         <i class="fas fa-map-marker-alt text-brand-red"></i>
                         <span class="location-text">Select Location</span>
                     </button>
-                    <a href="#book" class="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(244,63,94,0.39)]">Book Now</a>
+                    <a href="#book" class="book-now-btn bg-brand-red hover:bg-brand-red-hover text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_4px_14px_0_rgba(244,63,94,0.39)]">Book Now</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -89,6 +94,10 @@
                 <a href="about.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">About</a>
                 <a href="services/explorer.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Services</a>
                 <a href="gallery.html" class="block px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">Gallery</a>
+                <a href="cart.html" class="flex items-center justify-between px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors">
+                    <span>Your Selection</span>
+                    <span class="cart-badge hidden bg-brand-red text-white text-[10px] px-2 py-0.5 rounded-full font-bold">0</span>
+                </a>
                 <button class="location-btn w-full text-left flex items-center space-x-2 px-3 py-3 text-white hover:bg-blue-800 rounded-lg font-medium transition-colors cursor-pointer">
                     <i class="fas fa-map-marker-alt text-brand-red"></i>
                     <span class="location-text">Select Location</span>
@@ -155,7 +164,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <a href="services/explorer.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                <a href="services/corporate-events.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
                     <div class="w-14 h-14 bg-brand-blue/10 shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
                         <i class="fas fa-briefcase text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
                     </div>
@@ -167,7 +176,7 @@
                 </a>
 
                 <!-- Service 2 -->
-                <a href="services/explorer.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                <a href="services/weddings.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
                     <div class="w-14 h-14 bg-brand-blue/10 shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
                         <i class="fas fa-glass-cheers text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
                     </div>
@@ -179,7 +188,7 @@
                 </a>
 
                 <!-- Service 3 -->
-                <a href="services/explorer.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                <a href="services/tent-decor.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
                     <div class="w-14 h-14 bg-brand-blue/10 shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
                         <i class="fas fa-campground text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
                     </div>
@@ -191,7 +200,7 @@
                 </a>
 
                 <!-- Service 4 -->
-                <a href="services/explorer.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
+                <a href="services/party-games.html" class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group block cursor-pointer">
                     <div class="w-14 h-14 bg-brand-blue/10 shadow-sm rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
                         <i class="fas fa-gamepad text-2xl text-brand-red group-hover:text-white transition-colors duration-300"></i>
                     </div>
@@ -206,222 +215,44 @@
     </section>
 
     <!-- Scrolling Card Carousel -->
-    <section class="py-12 overflow-hidden relative border-t border-white/5">
-        <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-slate-900">Explore Our Corporate Services</h3>
+    <!-- Featured Services Slider -->
+    <section class="py-16 bg-slate-50 overflow-hidden relative border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex justify-between items-end">
+            <div>
+                <h3 class="text-xs font-bold text-brand-red tracking-widest uppercase mb-3">Top Recommendations</h3>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Explore Our Featured Services</h2>
+                <div class="w-20 h-1.5 bg-brand-red mt-4 rounded-full"></div>
+            </div>
+            <div class="hidden md:flex space-x-2">
+                <button id="featured-prev" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-blue flex items-center justify-center hover:bg-brand-red hover:text-white hover:border-brand-red transition-all shadow-sm group">
+                    <i class="fas fa-chevron-left group-hover:-translate-x-0.5 transition-transform"></i>
+                </button>
+                <button id="featured-next" class="w-12 h-12 rounded-full bg-white border border-gray-200 text-brand-blue flex items-center justify-center hover:bg-brand-red hover:text-white hover:border-brand-red transition-all shadow-sm group">
+                    <i class="fas fa-chevron-right group-hover:translate-x-0.5 transition-transform"></i>
+                </button>
+            </div>
         </div>
         
-        <div class="card-marquee-container flex">
-            <!-- First Set -->
-            <div class="card-marquee-content flex gap-6 px-3">
-                <a href="services/corporate-events/annual-day-celebrations.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=400&auto=format&fit=crop" alt="Annual Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Annual Day</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/team-building-offsites.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop" alt="Team Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Team Building</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/product-launches.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop" alt="Product Launches" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Product Launches</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/reward-recognition.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="Reward Recognition" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Reward & Recognition</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/conferences-seminars.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=400&auto=format&fit=crop" alt="Conferences" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Conferences</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/town-hall-meetings.html" class="w-72 flex-shrink-0 bg-white/5 rounded-xl shadow-2xl hover:shadow-brand-red/10 transition-all border border-white/10 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=400&auto=format&fit=crop" alt="Town Halls" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Town Halls</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/trade-shows-exhibitions.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=400&auto=format&fit=crop" alt="Trade Shows" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Trade Shows</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/festive-corporate-parties.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=400&auto=format&fit=crop" alt="Festive Parties" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Festive Parties</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/executive-vip-dinners.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400&auto=format&fit=crop" alt="VIP Dinners" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">VIP Dinners</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/workshops-training.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&auto=format&fit=crop" alt="Workshops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Workshops</h4>
-                    </div>
-                </a>
-            </div>
-            
-            <!-- Second Set (Duplicate) -->
-            <div class="card-marquee-content flex gap-6 px-3" aria-hidden="true">
-                <a href="services/corporate-events/annual-day-celebrations.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=400&auto=format&fit=crop" alt="Annual Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Annual Day</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/team-building-offsites.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=400&auto=format&fit=crop" alt="Team Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Team Building</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/product-launches.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop" alt="Product Launches" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Product Launches</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/reward-recognition.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="Reward Recognition" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Reward & Recognition</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/conferences-seminars.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=400&auto=format&fit=crop" alt="Conferences" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Conferences</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/town-hall-meetings.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=400&auto=format&fit=crop" alt="Town Halls" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Town Halls</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/trade-shows-exhibitions.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?q=80&w=400&auto=format&fit=crop" alt="Trade Shows" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Trade Shows</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/festive-corporate-parties.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=400&auto=format&fit=crop" alt="Festive Parties" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Festive Parties</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/executive-vip-dinners.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400&auto=format&fit=crop" alt="VIP Dinners" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">VIP Dinners</h4>
-                    </div>
-                </a>
-                <a href="services/corporate-events/workshops-training.html" class="w-72 flex-shrink-0 bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow border border-gray-100 overflow-hidden group block">
-                    <div class="h-36 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&auto=format&fit=crop" alt="Workshops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        <h4 class="absolute bottom-4 left-4 text-white font-bold text-lg drop-shadow-md">Workshops</h4>
-                    </div>
-                </a>
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+            <div id="featured-services-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-10 pt-2 scroll-smooth hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Premium cards injected via JS -->
+                <div class="flex items-center justify-center w-full py-20 text-slate-400 italic">
+                    <i class="fas fa-spinner fa-spin mr-2"></i> Loading premium services...
+                </div>
             </div>
         </div>
-
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-white to-transparent"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-white to-transparent"></div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="book" class="py-24 relative bg-brand-blue overflow-hidden">
-        <!-- Abstract Background Elements -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-blue-600/30 blur-[100px]"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[50%] rounded-full bg-brand-red/20 blur-[100px]"></div>
-        </div>
-
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
-                <h2 class="text-sm font-bold text-brand-red tracking-widest uppercase mb-3">Seamless Process</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-white">Request a Booking</h3>
-                <p class="text-blue-100 mt-4 max-w-2xl mx-auto font-light">Select your services and send us your details. Our team will connect with you immediately via WhatsApp to finalize your setup.</p>
+    <!-- Cinematic Showcase Grid -->
+    <section id="showcase" class="py-16 relative bg-slate-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-xs font-bold text-brand-red tracking-widest uppercase mb-2">Experience Excellence</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Moments of Perfection</h3>
             </div>
-
-            <div class="glass-card rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10">
-                <form id="booking-form" class="space-y-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Full Name -->
-                        <div>
-                            <label for="fullName" class="block text-sm font-medium text-blue-100 mb-2">Full Name <span class="text-brand-red">*</span></label>
-                            <input type="text" id="fullName" required placeholder="Enter your full name" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
-                        </div>
-                        <!-- WhatsApp Number -->
-                        <div>
-                            <label for="whatsappNum" class="block text-sm font-medium text-blue-100 mb-2">WhatsApp Number <span class="text-brand-red">*</span></label>
-                            <input type="tel" id="whatsappNum" required placeholder="+91 98765 43210" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
-                        </div>
-                        <!-- Event Date -->
-                        <div>
-                            <label for="eventDate" class="block text-sm font-medium text-blue-100 mb-2">Event Date <span class="text-brand-red">*</span></label>
-                            <input type="date" id="eventDate" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10 [color-scheme:dark]">
-                        </div>
-                        <!-- Event Location -->
-                        <div>
-                            <label for="eventLocation" class="block text-sm font-medium text-blue-100 mb-2">Event Location (City/Venue) <span class="text-brand-red">*</span></label>
-                            <input type="text" id="eventLocation" required placeholder="e.g. Gurugram, DLF Phase 3" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-200/50 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all focus:bg-white/10">
-                        </div>
-                    </div>
-
-                    <!-- Services Required -->
-                    <div class="pt-4 border-t border-white/10">
-                        <label class="block text-sm font-medium text-blue-100 mb-5">Services Required (Select multiple) <span class="text-brand-red">*</span></label>
-                        <div id="dynamic-booking-services" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[300px] overflow-y-auto pr-2">
-                            <!-- Checkboxes dynamically generated by main.js to match services/explorer.html -->
-                        </div>
-                        <p id="service-error" class="text-brand-red bg-brand-red/10 border border-brand-red/20 px-4 py-2 rounded-lg text-sm mt-4 hidden items-center"><i class="fas fa-exclamation-circle mr-2"></i> Please select at least one service.</p>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="pt-6">
-                        <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-bold py-5 px-8 rounded-xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] transition-all duration-300 transform hover:-translate-y-1 flex justify-center items-center space-x-3 text-lg">
-                            <i class="fab fa-whatsapp text-3xl"></i>
-                            <span>Send Request via WhatsApp</span>
-                        </button>
-                    </div>
-                </form>
+            
+            <div id="gallery-grid" class="flex gap-4 overflow-x-auto pb-10 pt-4 hide-scrollbar snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Grid items dynamically injected by main.js -->
             </div>
         </div>
     </section>
@@ -429,28 +260,29 @@
     <!-- Clickable Text Marquee -->
     <div class="marquee-container border-y border-gray-800">
         <div class="marquee-content hover:pause-animation">
-            <!-- First Set -->
-            <a href="services/corporate-events/annual-day-celebrations.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/team-building-offsites.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/product-launches.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/reward-recognition.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Reward & Recognition (R&R)</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/conferences-seminars.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/town-hall-meetings.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/trade-shows-exhibitions.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/festive-corporate-parties.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/executive-vip-dinners.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/workshops-training.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
-            <!-- Second Set -->
-            <a href="services/corporate-events/annual-day-celebrations.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/team-building-offsites.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/product-launches.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/reward-recognition.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Reward & Recognition (R&R)</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/conferences-seminars.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/town-hall-meetings.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/trade-shows-exhibitions.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/festive-corporate-parties.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/executive-vip-dinners.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
-            <a href="services/corporate-events/workshops-training.html" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
+            <!-- Set 1 -->
+            <a href="services/view.html?id=corp-1&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-2&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-3&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-4&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-5&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-6&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-7&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-8&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-9&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-10&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Gala Award Ceremonies</a> <span class="text-brand-red">•</span>
+
+            <!-- Set 2 (Duplicated for infinite scroll) -->
+            <a href="services/view.html?id=corp-1&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Annual Day Celebrations</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-2&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Team Building & Offsites</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-3&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Product Launches</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-4&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Conferences & Seminars</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-5&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Town Hall Meetings</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-6&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Trade Shows & Exhibitions</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-7&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Festive Corporate Parties</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-8&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Executive & VIP Dinners</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-9&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Workshops & Training</a> <span class="text-brand-red">•</span>
+            <a href="services/view.html?id=corp-10&cat=corporate" class="mx-4 hover:text-brand-red transition-colors inline-block">Gala Award Ceremonies</a> <span class="text-brand-red">•</span>
         </div>
     </div>
 
