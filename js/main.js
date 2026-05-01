@@ -344,10 +344,10 @@ bookNowBtns.forEach(btn => {
     if (galleryGrid) {
         const renderGallery = () => {
             galleryGrid.innerHTML = '';
-            
+
             // Use window.galleryData if available, fallback to services images
             let sourceData = window.galleryData || [];
-            
+
             if (sourceData.length === 0 && window.servicesData) {
                 Object.values(window.servicesData).forEach(cat => {
                     cat.items.forEach(item => {
@@ -356,12 +356,11 @@ bookNowBtns.forEach(btn => {
                 });
             }
 
+            // Render ALL items — no limit. Future uploads auto-appear.
             sourceData.forEach((item, index) => {
                 const card = document.createElement('div');
-                const pulseDelay = Math.random() * 5;
-                card.className = `gallery-item shrink-0 w-[300px] md:w-[350px] aspect-video relative overflow-hidden rounded-2xl group bg-white/5 border border-white/10 transition-all duration-1000 animate-pulse-slow snap-start cursor-grab active:cursor-grabbing`;
-                card.style.animationDelay = `${pulseDelay}s`;
-                
+                card.className = 'gallery-item relative overflow-hidden rounded-2xl group bg-white/5 border border-white/10 aspect-video cursor-pointer';
+
                 if (item.type === 'video') {
                     card.innerHTML = `
                         <video src="${item.src}" class="w-full h-full object-cover" muted loop playsinline poster="${item.poster || ''}"></video>
@@ -375,7 +374,6 @@ bookNowBtns.forEach(btn => {
                             </div>
                         </div>
                     `;
-                    // Play video on hover
                     card.addEventListener('mouseenter', () => card.querySelector('video').play());
                     card.addEventListener('mouseleave', () => card.querySelector('video').pause());
                 } else {
@@ -391,37 +389,6 @@ bookNowBtns.forEach(btn => {
                 }
                 galleryGrid.appendChild(card);
             });
-
-            // Add Drag-to-Scroll Functionality
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            galleryGrid.addEventListener('mousedown', (e) => {
-                isDown = true;
-                galleryGrid.classList.add('active');
-                startX = e.pageX - galleryGrid.offsetLeft;
-                scrollLeft = galleryGrid.scrollLeft;
-            });
-            galleryGrid.addEventListener('mouseleave', () => { isDown = false; });
-            galleryGrid.addEventListener('mouseup', () => { isDown = false; });
-            galleryGrid.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - galleryGrid.offsetLeft;
-                const walk = (x - startX) * 2; // scroll-fast
-                galleryGrid.scrollLeft = scrollLeft - walk;
-            });
-
-            // Spotlight Effect
-            setInterval(() => {
-                const items = document.querySelectorAll('.gallery-item');
-                if (items.length > 0) {
-                    items.forEach(i => i.classList.remove('spotlight'));
-                    const randomItem = items[Math.floor(Math.random() * items.length)];
-                    randomItem.classList.add('spotlight');
-                }
-            }, 3000);
         };
         renderGallery();
     }
@@ -432,7 +399,7 @@ bookNowBtns.forEach(btn => {
         const renderFeaturedSlider = () => {
             featuredContainer.innerHTML = '';
             
-            // Get all items from all categories
+            // Get all items from all categories — NO slice/limit
             let allItems = [];
             Object.keys(window.servicesData).forEach(catKey => {
                 const cat = window.servicesData[catKey];
@@ -441,11 +408,9 @@ bookNowBtns.forEach(btn => {
                 });
             });
 
-            // Randomize and pick 12 items
-            const featured = allItems.sort(() => 0.5 - Math.random()).slice(0, 12);
             const userLoc = localStorage.getItem('userLocation') || 'Gurgaon';
 
-            featured.forEach(item => {
+            allItems.forEach(item => {
                 const isSelected = window.selectedServices && window.selectedServices.has(item.id);
                 const card = document.createElement('div');
                 card.className = 'min-w-[280px] md:min-w-[320px] max-w-[320px] snap-start bg-white border border-gray-100 shadow-sm rounded-3xl p-5 hover:shadow-lg hover:border-brand-red/20 transition-all group flex flex-col shrink-0';

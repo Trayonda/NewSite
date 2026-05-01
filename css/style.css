@@ -368,6 +368,36 @@ body.page-explorer {
     box-shadow: 0 0 16px rgba(37, 211, 102, 0.4);
 }
 
+/* ── Bucket Glow — applied to .book-now-btn when cart has items ────────────
+   Adds a shimmer sweep + pulsing shadow so "Go to Bucket" grabs attention.
+   Added/removed via JS in services.js → updateCartUI()
+   ─────────────────────────────────────────────────────────────────────────── */
+@keyframes shimmer-sweep {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes bucket-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5), 0 4px 14px rgba(244, 63, 94, 0.35); }
+    50%       { box-shadow: 0 0 0 6px rgba(244, 63, 94, 0),  0 4px 20px rgba(244, 63, 94, 0.5); }
+}
+
+.btn-bucket-glow {
+    background-image: linear-gradient(
+        105deg,
+        var(--brand-red)      0%,
+        #ff6b81               40%,
+        var(--brand-red)      50%,
+        #ff6b81               60%,
+        var(--brand-red)      100%
+    );
+    background-size: 200% auto;
+    animation:
+        shimmer-sweep 2s linear infinite,
+        bucket-pulse  1.8s ease-in-out infinite;
+    color: #fff !important;
+}
+
 
 /* ────────────────────────────────────────────────────────────────────────────
    13. PAGE HERO BACKGROUNDS — Complete list for every page

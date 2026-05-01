@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-slate-50">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
     <script src="js/engine.js"></script>
 </head>
 
-<body class="font-sans antialiased text-slate-800 flex flex-col min-h-screen">
+<body class="font-sans antialiased flex flex-col min-h-screen">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-[#1e293b]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-sm">
@@ -63,10 +63,18 @@
     </nav>
 
     <!-- Header -->
-    <div class="pt-32 pb-12 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Your Selection</h1>
-            <p class="text-slate-500 mt-2 text-lg">Review your bucket and fast-track your event booking.</p>
+    <div class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div class="bg-gradient-to-r from-brand-blue/5 to-brand-red/5 rounded-[2.5rem] p-8 md:p-12 border border-brand-blue/10 relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-xs font-bold text-brand-red uppercase tracking-[0.3em] mb-4">Your Selection</h2>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                        Review your bucket and fast-track your event booking.
+                    </h1>
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl"></div>
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl"></div>
+            </div>
         </div>
     </div>
 

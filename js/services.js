@@ -129,7 +129,7 @@ window.renderSidebar = function(activeCategory = 'corporate') {
                data-category="${key}"
                class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 border transition-all duration-200 ${
                    isActive
-                       ? 'bg-brand-blue border-brand-blue text-white shadow-[0_10px_30px_rgba(30,58,138,0.22)]'
+                       ? 'active bg-brand-blue border-brand-blue text-white shadow-[0_10px_30px_rgba(30,58,138,0.22)]'
                        : `bg-gradient-to-br ${tone} border-white/10 text-white hover:-translate-y-0.5 hover:shadow-lg`
                }">
                 <span class="flex items-center gap-3 min-w-0">
@@ -227,42 +227,25 @@ window.toggleService = function(serviceId, btn) {
 };
 
 function updateCartUI() {
-    const cartList = document.getElementById('cart-items-list');
-    const bookBtn = document.getElementById('explorer-book-btn');
-    if (!cartList) return;
-
-    cartList.innerHTML = '';
     let totalItems = 0;
 
     Object.values(window.servicesData).forEach(cat => {
         cat.items.forEach(item => {
             if (window.selectedServices.has(item.id)) {
                 totalItems++;
-                const div = document.createElement('div');
-                div.className = 'flex items-center justify-between p-3 bg-slate-50 rounded-xl mb-2 border border-gray-100';
-                div.innerHTML = `
-                    <div class="text-xs font-bold text-slate-800">${item.name}</div>
-                    <button onclick="toggleService('${item.id}')" class="text-rose-400 hover:text-rose-600"><i class="fas fa-times"></i></button>
-                `;
-                cartList.appendChild(div);
             }
         });
     });
 
-
-
-    const cartSidebar = document.getElementById('cart-sidebar');
-    
-    if (totalItems > 0) {
-        if (cartSidebar) cartSidebar.classList.remove('hidden');
-        bookBtn.classList.remove('opacity-50', 'pointer-events-none');
-        bookBtn.innerHTML = `<i class="fab fa-whatsapp mr-2 text-xl"></i> Book ${totalItems} Service${totalItems > 1 ? 's' : ''}`;
-    } else {
-        if (cartSidebar) cartSidebar.classList.add('hidden');
-        bookBtn.classList.add('opacity-50', 'pointer-events-none');
-        bookBtn.innerHTML = `<i class="fab fa-whatsapp mr-2 text-xl"></i> Finalize & Book`;
-        cartList.innerHTML = '<div class="text-center py-6 text-slate-400 text-[11px] italic">Explore and add services to your bucket.</div>';
-    }
+    // Animate the navbar "Go to Bucket" / "Book Now" button
+    const bookNowBtns = document.querySelectorAll('.book-now-btn');
+    bookNowBtns.forEach(btn => {
+        if (totalItems > 0) {
+            btn.classList.add('btn-bucket-glow');
+        } else {
+            btn.classList.remove('btn-bucket-glow');
+        }
+    });
 }
 
 // Initial Run
@@ -271,30 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.renderServices('corporate');
     }
 
-    // Handle Book Button Click on Explorer Page
-    const bookBtn = document.getElementById('explorer-book-btn');
-    if (bookBtn) {
-        bookBtn.addEventListener('click', () => {
-            if (selectedServices.size === 0) return;
-
-            const selectedNames = [];
-            Object.values(window.servicesData).forEach(cat => {
-                cat.items.forEach(item => {
-                    if (selectedServices.has(item.id)) {
-                        selectedNames.push(item.name);
-                    }
-                });
-            });
-
-            const servicesString = selectedNames.join(', ');
-            const message = `Hello EventSetup Team! I have selected the following services from your website:\n\n*Services Required:* ${servicesString}\n\nPlease get in touch with me to finalize the setup.`;
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Business WhatsApp Number
-            const businessPhone = "919650624535";
-            window.open(`https://wa.me/${businessPhone}?text=${encodedMessage}`, '_blank');
-        });
-    }
+    // Restore glow state on page load if cart already has items
+    updateCartUI();
 });
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarNav = document.getElementById('sidebar-nav');
