@@ -97,44 +97,119 @@
             <div class="flex flex-col lg:flex-row gap-8">
                 
                 <!-- Sidebar -->
-                <aside class="lg:w-64 shrink-0">
-                    <div class="bg-white rounded-2xl border border-gray-200 p-4 sticky top-28 shadow-sm">
-                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 px-4">Categories</h3>
-                        <nav id="sidebar-nav" class="space-y-2">
-                            <a href="#" data-category="corporate" class="sidebar-link active flex items-center px-4 py-3 rounded-xl transition-all font-medium">
-                                <i class="fas fa-building w-6"></i> Corporate
-                            </a>
-                            <a href="#" data-category="weddings" class="sidebar-link text-slate-600 hover:bg-slate-50 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
-                                <i class="fas fa-heart w-6"></i> Weddings
-                            </a>
-                            <a href="#" data-category="tents" class="sidebar-link text-slate-600 hover:bg-slate-50 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
-                                <i class="fas fa-campground w-6"></i> Tent & Decor
-                            </a>
-                            <a href="#" data-category="games" class="sidebar-link text-slate-600 hover:bg-slate-50 flex items-center px-4 py-3 rounded-xl transition-all font-medium">
-                                <i class="fas fa-gamepad w-6"></i> Party Games
-                            </a>
-                        </nav>
-                        
-                        <div class="mt-8 pt-8 border-t border-gray-100 px-4">
-                            <div class="flex items-center space-x-3 text-sm text-slate-700 mb-4">
-                                <i class="fas fa-headset text-brand-red"></i>
-                                <span class="font-bold">Need help?</span>
-                            </div>
-                            <p class="text-xs text-slate-500 mb-6 leading-relaxed">Chat with our experts for custom setups.</p>
-                            
-                            <div class="space-y-3">
-                                <a href="tel:+919650624535" class="flex items-center justify-center space-x-2 w-full py-3 bg-slate-50 border border-gray-200 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-100 transition-all">
-                                    <i class="fas fa-phone-alt text-brand-red"></i>
-                                    <span>Call Support</span>
-                                </a>
-                                <a href="https://wa.me/919650624535" target="_blank" class="flex items-center justify-center space-x-2 w-full py-3 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl text-xs font-bold text-[#25D366] hover:bg-[#25D366]/20 transition-all">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <span>WhatsApp Us</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+                <aside class="lg:w-72 shrink-0">
+    <div class="sticky top-28 rounded-[28px] border border-slate-200 bg-white/95 backdrop-blur-sm shadow-[0_12px_40px_rgba(15,23,42,0.06)] overflow-hidden">
+        
+        <div class="px-6 pt-6 pb-4 border-b border-slate-100">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400 mb-3">
+                Categories
+            </p>
+            <h3 class="text-lg font-semibold text-slate-900 leading-tight">
+                Browse Services
+            </h3>
+            <p class="text-sm text-slate-500 mt-1 leading-relaxed">
+                Curated event solutions for every occasion.
+            </p>
+        </div>
+
+        <nav id="sidebar-nav" class="p-4 space-y-2">
+            <a href="#" data-category="corporate"
+               class="sidebar-link active group flex items-center justify-between rounded-2xl px-4 py-3.5 bg-brand-blue/10 text-brand-blue border border-brand-blue/15 transition-all duration-200">
+                <span class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue text-white text-sm shadow-sm">
+                        <i class="fas fa-building"></i>
+                    </span>
+                    <span>
+                        <span class="block text-sm font-semibold">Corporate</span>
+                        <span class="block text-[11px] text-brand-blue/70">Business events</span>
+                    </span>
+                </span>
+                <i class="fas fa-arrow-right text-xs text-brand-blue/60 group-hover:text-brand-blue"></i>
+            </a>
+
+            <a href="#" data-category="weddings"
+               class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 text-slate-700 border border-transparent hover:bg-slate-50 hover:border-slate-200 transition-all duration-200">
+                <span class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 text-rose-500 text-sm">
+                        <i class="fas fa-heart"></i>
+                    </span>
+                    <span>
+                        <span class="block text-sm font-semibold">Weddings</span>
+                        <span class="block text-[11px] text-slate-400">Luxury celebrations</span>
+                    </span>
+                </span>
+                <i class="fas fa-arrow-right text-xs text-slate-300 group-hover:text-slate-500"></i>
+            </a>
+
+            <a href="#" data-category="tents"
+               class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 text-slate-700 border border-transparent hover:bg-slate-50 hover:border-slate-200 transition-all duration-200">
+                <span class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 text-sm">
+                        <i class="fas fa-campground"></i>
+                    </span>
+                    <span>
+                        <span class="block text-sm font-semibold">Tent & Decor</span>
+                        <span class="block text-[11px] text-slate-400">Outdoor setups</span>
+                    </span>
+                </span>
+                <i class="fas fa-arrow-right text-xs text-slate-300 group-hover:text-slate-500"></i>
+            </a>
+
+            <a href="#" data-category="games"
+               class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 text-slate-700 border border-transparent hover:bg-slate-50 hover:border-slate-200 transition-all duration-200">
+                <span class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 text-sm">
+                        <i class="fas fa-gamepad"></i>
+                    </span>
+                    <span>
+                        <span class="block text-sm font-semibold">Party Games</span>
+                        <span class="block text-[11px] text-slate-400">Fun experiences</span>
+                    </span>
+                </span>
+                <i class="fas fa-arrow-right text-xs text-slate-300 group-hover:text-slate-500"></i>
+            </a>
+
+            <a href="#" data-category="test"
+               class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 text-slate-700 border border-transparent hover:bg-slate-50 hover:border-slate-200 transition-all duration-200">
+                <span class="flex items-center gap-3">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-600 text-sm">
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span>
+                        <span class="block text-sm font-semibold">Test Category</span>
+                        <span class="block text-[11px] text-slate-400">Custom collection</span>
+                    </span>
+                </span>
+                <i class="fas fa-arrow-right text-xs text-slate-300 group-hover:text-slate-500"></i>
+            </a>
+        </nav>
+
+        <div class="mx-4 mb-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+            <div class="flex items-start gap-3 mb-4">
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-brand-red shadow-sm">
+                    <i class="fas fa-headset text-sm"></i>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-slate-900">Need help?</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-1">
+                        Chat with our experts for custom setups.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+                <a href="tel:+919650624535"
+                   class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-semibold text-slate-700 hover:border-slate-300 hover:bg-slate-100 transition-all">
+                    Call
+                </a>
+                <a href="https://wa.me/919650624535" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center rounded-xl bg-[#25D366] px-3 py-3 text-xs font-semibold text-white hover:bg-[#1ebe5d] transition-all shadow-[0_8px_18px_rgba(37,211,102,0.25)]">
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</aside>
 
                 <!-- Content Area -->
                 <div class="flex-1">

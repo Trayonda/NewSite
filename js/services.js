@@ -94,6 +94,63 @@ window.saveCartState = function() {
     window.dispatchEvent(new CustomEvent('cartUpdated', { detail: window.selectedServices.size }));
 };
 
+
+const sidebarMeta = {
+    corporate: {
+        subtitle: 'Business events',
+        tone: 'from-[#314d87] to-[#243b6b]'
+    },
+    weddings: {
+        subtitle: 'Luxury celebrations',
+        tone: 'from-[#9f3b6f] to-[#7f2855]'
+    },
+    tents: {
+        subtitle: 'Outdoor setups',
+        tone: 'from-[#8b5e2d] to-[#6f451c]'
+    },
+    games: {
+        subtitle: 'Fun experiences',
+        tone: 'from-[#22606f] to-[#184956]'
+    }
+};
+
+window.renderSidebar = function(activeCategory = 'corporate') {
+    const sidebarNav = document.getElementById('sidebar-nav');
+    if (!sidebarNav || !window.servicesData) return;
+
+    sidebarNav.innerHTML = Object.entries(window.servicesData).map(([key, category]) => {
+        const meta = sidebarMeta[key] || {};
+        const subtitle = meta.subtitle || 'Custom collection';
+        const tone = meta.tone || 'from-slate-700 to-slate-800';
+        const isActive = key === activeCategory;
+
+        return `
+            <a href="#"
+               data-category="${key}"
+               class="sidebar-link group flex items-center justify-between rounded-2xl px-4 py-3.5 border transition-all duration-200 ${
+                   isActive
+                       ? 'bg-brand-blue border-brand-blue text-white shadow-[0_10px_30px_rgba(30,58,138,0.22)]'
+                       : `bg-gradient-to-br ${tone} border-white/10 text-white hover:-translate-y-0.5 hover:shadow-lg`
+               }">
+                <span class="flex items-center gap-3 min-w-0">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+                        isActive ? 'bg-white/16' : 'bg-white/12'
+                    } text-sm text-white">
+                        <i class="fas ${category.icon}"></i>
+                    </span>
+
+                    <span class="min-w-0">
+                        <span class="block text-sm font-semibold truncate">${category.title}</span>
+                        <span class="block text-[11px] text-white/80 truncate">${subtitle}</span>
+                    </span>
+                </span>
+
+                <i class="fas fa-arrow-right text-xs ${isActive ? 'text-white/90' : 'text-white/70 group-hover:text-white'}"></i>
+            </a>
+        `;
+    }).join('');
+};
+
 // Define globally
 window.renderServices = function(category) {
     const explorerContent = document.getElementById('explorer-content');
@@ -104,6 +161,7 @@ window.renderServices = function(category) {
     if (!explorerContent) return;
 
     const categoryData = window.servicesData[category] || { title: 'No Category', description: '', items: [] };
+window.renderSidebar(category);
     
     // Update Header
     categoryTitle.textContent = categoryData.title;
@@ -191,6 +249,8 @@ function updateCartUI() {
         });
     });
 
+
+
     const cartSidebar = document.getElementById('cart-sidebar');
     
     if (totalItems > 0) {
@@ -233,6 +293,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Business WhatsApp Number
             const businessPhone = "919650624535";
             window.open(`https://wa.me/${businessPhone}?text=${encodedMessage}`, '_blank');
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarNav = document.getElementById('sidebar-nav');
+
+    if (sidebarNav) {
+        sidebarNav.addEventListener('click', (e) => {
+            const link = e.target.closest('.sidebar-link');
+            if (!link) return;
+
+            e.preventDefault();
+            const category = link.dataset.category;
+            if (category) window.renderServices(category);
         });
     }
 });

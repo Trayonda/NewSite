@@ -277,27 +277,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        const bookNowBtns = document.querySelectorAll('.book-now-btn, a[href$="#book"], a[href$="explorer.html"]');
-        bookNowBtns.forEach(btn => {
-            const pathParts = window.location.pathname.split('/').filter(p => p);
-            const isInSubDir = window.location.pathname.includes('/services/');
-            const isInDeepDir = pathParts.length > 2 && isInSubDir;
-            
-            let prefix = '';
-            if (isInDeepDir) prefix = '../../';
-            else if (isInSubDir) prefix = '../';
+        const bookNowBtns = document.querySelectorAll('.book-now-btn');
+bookNowBtns.forEach(btn => {
+    const isInSubDir = window.location.pathname.includes('/services/');
 
-            const cartPath = prefix + 'cart.html';
-            const explorerPath = prefix + (isInSubDir ? 'explorer.html' : 'services/explorer.html');
+    // ✅ Specifically check karo ki services/ ke andar aur ek subfolder hai ya nahi
+    // /services/explorer.html        → false ✅
+    // /services/corporate-events/x.html → true ✅
+    const isInDeepDir = /\/services\/[^\/]+\/[^\/]+/.test(window.location.pathname);
 
-            if (count > 0) {
-                btn.href = cartPath;
-                if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Go to Bucket';
-            } else {
-                btn.href = explorerPath;
-                if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Book Now';
-            }
-        });
+    let prefix = '';
+    if (isInDeepDir) prefix = '../../';
+    else if (isInSubDir) prefix = '../';
+    else prefix = '';
+
+    const cartPath = prefix + 'cart.html';
+
+    let explorerPath;
+    if (isInDeepDir) explorerPath = '../explorer.html';
+    else if (isInSubDir) explorerPath = 'explorer.html';
+    else explorerPath = 'services/explorer.html';
+
+    if (count > 0) {
+        btn.href = cartPath;
+        if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Go to Bucket';
+    } else {
+        btn.href = explorerPath;
+        if (btn.tagName === 'A' && btn.classList.contains('book-now-btn')) btn.innerText = 'Book Now';
+    }
+});
     };
 
     // Global Date Validation
